@@ -9,8 +9,6 @@
   <script src="/stock/resources/core/js/jquery.js"></script>
   <script src="/stock/resources/core/js/bootstrap.min.js"></script>
    <link rel="stylesheet" href="/stock/resources/core/css/hello.css">
-  <script src = "/stock/resources/core/js/UserInfo.js"></script>
-  
 </head>
 <body>
 
@@ -18,8 +16,8 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a  href="/stock/">
-      <img src="/stock/resources/images/Logo_MyMajorCompany.png" class="img-thumbnail" 
- 		alt="Big data" width="50" height="50"> 
+      <img src="/stock/resources/images/logo.png" class="img-thumbnail" 
+ 		alt="stock" width="50" height="50"> 
       </a>
    
     </div>
