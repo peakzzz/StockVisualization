@@ -1,0 +1,69 @@
+h2 {
+	color: Black;
+	font: 28px "Lucida Grande", Helvetica, Arial, sans-serif;
+	padding: 10px;
+	text-align: center;
+}
+#leftdiv, #rightdiv { 
+  width: 45%; 
+  margin:5px; 
+  padding: 10px; 
+  background: white; 
+}
+#leftdiv  { float:left;  }
+#rightdiv { float:right; } 
+
+
+
+html,
+body {
+	margin:0;
+	padding:0px;
+	height:100%;
+}
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+#header {
+	background:#ededed;
+	padding:10px;
+}
+#content {
+	padding-bottom:100px; /* Height of the footer element */
+}
+#modalblue {
+  width: 560px;
+  background-color: #e0e0e0;
+  text-align: center;
+  font-size: 1em;
+}
+#modalgreen {
+  background-color:green;
+}
+table.test td {
+	border: 1;
+    background-color: #ccccff;
+    font-family: cursive;
+    margin: 12px 12px 12px 12px;
+    padding: 12px 12px 12px 12px;
+}
+#footer {
+	border-top-style: solid;
+	border-color:blue;
+	width:100%;
+	height:100px;
+	position:absolute;
+	bottom:0px;
+	text-align: center;
+	left: 0;
+	
+}
+.offerbox {
+    border-radius: 25px;
+    background: #8AC007;
+    padding: 20px; 
+    width: 200px;
+    height: 150px;  
+    font-color: white;  
+}
