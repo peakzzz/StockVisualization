@@ -1,4 +1,3 @@
-
 <head>
   <title>Stock Market</title>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -25,6 +24,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="/stock/">Home</a></li>
         <li><a href="/stock/dashboard">Dashboard</a></li>
+        <li><a href="/stock/currency">Money</a></li>
          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Sample <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">sample1</a></li>

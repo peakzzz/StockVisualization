@@ -32,4 +32,14 @@ public class BasicController {
 	        return mv;
 
 		}
+	
+	@RequestMapping(value = "/currency", method = RequestMethod.GET
+			)
+		public ModelAndView showMoney() {
+			System.out.println("hi i m in Stock Currency Page");
+			
+			ModelAndView mv = new ModelAndView("currency");
+	        return mv;
+
+		}
 }
