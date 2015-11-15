@@ -76,8 +76,7 @@ public class BasicController {
 
 		}
 	
-	@RequestMapping(value = "/currency", method = RequestMethod.GET
-			)
+	@RequestMapping(value = "/currency", method = RequestMethod.GET)
 		public ModelAndView showMoney() {
 			System.out.println("hi i m in Stock Currency Page");
 			
@@ -85,4 +84,10 @@ public class BasicController {
 	        return mv;
 
 		}
+	@RequestMapping(value = "/company", method = RequestMethod.GET)
+	public ModelAndView getCompany(){
+		ModelAndView mv = new ModelAndView("company_Stock");
+		return mv;
+	}
+	
 }

@@ -190,3 +190,30 @@ font-size: 1.25em;
 .plan-tier.callout h4 {
 background-color: #78b336;
 }
+
+#sector_industry{
+	border: 1px solid #D1D1D1;
+	width: 100%;
+	margin: 20px 0px 15px;
+}
+
+#sector_industry td wsod_tdfirst{
+	width: 25%;
+}
+
+#sector_industry td div{
+	font-size: 16px;
+	color: #535353;
+}
+#sector_industry td {
+    padding: 5px 0px;
+    width: 25%;
+    background: transparent url("http://i2.cdn.turner.com/money/.element/img/3.0/data/bg_profileTableDiv.gif") no-repeat scroll right center;
+    font-size: 11px;
+    text-align: center;
+    color: #A2A2A2;	
+    }
+
+.borderBottom{
+	border-bottom: 3px solid #E7E7E7;
+}

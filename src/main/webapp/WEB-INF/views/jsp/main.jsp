@@ -35,6 +35,7 @@
         <li ><a href="/stock/">Home</a></li>
         <li><a href="/stock/dashboard">Dashboard</a></li>
         <li><a href="/stock/currency">Money</a></li>
+        <li><a href="/stock/company">Company</a></li>
          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Sample <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">sample1</a></li>
