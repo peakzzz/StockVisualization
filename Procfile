@@ -1,1 +1,1 @@
-web: gunicorn my_app_name.wsgi
+web: gunicorn vast-garden-9954.wsgi
