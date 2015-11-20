@@ -1,1 +1,1 @@
-web: gunicorn vast-garden-9954.wsgi
+web: sh target/bin/webapp
