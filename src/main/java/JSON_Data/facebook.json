@@ -1,0 +1,48 @@
+{
+	"company_data" :
+	{
+		"stock_name": "fcbk",
+		"sector":"Technology Services",
+		"industry": "Internet Software/Services",
+		"market_cap" : "$294.0B",
+		"company_desc": "Facebook, Inc. is a social networking service and website. Its website allows people to communicate with their family, friends, and coworkers. The company offers advertisers a combination of reach, relevance, social context, and engagement to enhance the value of their ads. Its services include timeline, news feed, messages, lists, ticker and mobile apps. Facebook was founded by Mark Elliot Zuckerberg, Dustin Moskovitz, Chris R. Hughes, Andrew McCollum and Eduardo P. Saverin on February 4, 2004 and is headquartered in Menlo Park, CA.",
+		"delayed_data" : "103.95",
+		"initial" : "-4",
+		"final" : "-3",
+		"year_to_date": "33",
+		"lat": "37.4834",
+		"lon": "-122.15"
+	}
+"company_strength":
+	[
+	 {"year":2010,"strength":150},
+	 {"year":2011,"strength":250},
+	 {"year":2012,"strength":270},
+	 {"year":2013,"strength":310},
+	 {"year":2014,"strength":350},
+	 ]
+,
+"stock_data": [
+{"date" :"2013-01-29","price":144, "name":"fb"},
+{"date" :"2013-07-20","price":87	,"name":"fb"},
+{"date" :"2013-09-16","price":120	,"name":"fb"},
+{"date" :"2013-12-05","price":71	,"name":"fb"},
+{"date" :"2014-03-07","price":61	,"name":"fb"},
+{"date" :"2014-07-26","price":106	,"name":"fb"},
+{"date" :"2014-12-11","price":101	,"name":"fb"},
+{"date" :"2015-01-05","price":192	,"name":"fb"},
+{"date" :"2015-02-19","price":159	,"name":"fb"},
+{"date" :"2015-03-14","price":199	,"name":"fb"},
+{"date" :"2015-08-04","price":75	,"name":"fb"},
+{"date" :"2015-09-01","price":196	,"name":"fb"},
+{"date" :"2015-09-04","price": 148, "name":"fb"},
+{"date" :"2016-03-28","price":111	,"name":"fb"},
+{"date" :"2016-05-22","price":58	,"name":"fb"},
+{"date" :"2016-06-04","price":65	,"name":"fb"},
+{"date" :"2016-06-25","price":151	,"name":"fb"},
+{"date" :"2016-09-12","price":106	,"name":"fb"},
+{"date" :"2016-10-13","price":142	,"name":"fb"},
+{"date" :"2016-10-22","price":113	,"name":"fb"}
+]
+"name": "facebook"
+}

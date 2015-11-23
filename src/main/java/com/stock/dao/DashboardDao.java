@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.stock.model.DBConnection;
 import com.stock.model.Gainer;
 import com.stock.model.Loser;
+import com.stock.model.StockPrice;
 
 public class DashboardDao {
 	private DataSource dataSource;
@@ -70,7 +72,33 @@ public class DashboardDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return list;
-		
+		return list;		
+	}
+	public List<StockPrice> readStockPrice()
+	{
+		Connection con = DBConnection.getConnection();
+		String sql ="select * from mytable order by date asc";
+		List<StockPrice> spList = new ArrayList<StockPrice>();
+		try{
+
+			PreparedStatement stmnt = con.prepareStatement(sql);
+			ResultSet rs = stmnt.executeQuery();
+			while(rs.next())
+			{
+				System.out.println("reading for "+rs.getString("name"));
+				StockPrice sp = new StockPrice();
+				sp.setDate(rs.getString("date"));
+				sp.setName(rs.getString("name"));
+				sp.setPrice(Integer.parseInt(rs.getString("price")));
+				spList.add(sp);
+				
+			}
+			return spList;
+		}
+		catch(Exception e)
+		{
+			System.out.println("Error");
+		}
+		return spList;
 	}
 }
