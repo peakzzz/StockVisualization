@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 <head>
 <title>Bootstrap Case</title>
@@ -20,18 +23,41 @@
 <link rel="stylesheet" href="/stock/resources/core/css/hello.css">
 <script type="text/javascript">
 	function initMap() {
-		
-		
+
 	}
+	var selectedCompany = "";
 	$(function() {
+		
+		$("input[name=companyListId]").on('change', function(){
+			selectedCompany = $(this).val();
+		});
+
 		//Initializing map
+			$.ajax({
+			url : "/stock/companyList",
+			context : document.body
+		}).done(
+				function(data) {
+					var comList = JSON.parse(data);
+					for (var i = 0, len = comList.length; i < len; i++) {
+						var opt = $("<option></option>").attr("value",
+								comList[i].name);
+						$("#company_list").append(opt);
+					}
+				})
+	});
+	function populateCompanyDetails()
+	{
 		$('#tabs').tabs();
 		var href = $('#tabs').find('a[href="#menu1"]');
 		(href).on('click', function() {
 			initMap();
 		});
+
+
+		
 		$.ajax({
-			url : "/stock/perCompany",
+			url : "/stock/perCompany/"+selectedCompany,
 			context : document.body
 		}).done(
 				function(data) {
@@ -47,7 +73,7 @@
 					series = series.reverse();
 					window.chart = new Highcharts.StockChart({
 						chart : {
-							borderWidth: 3,
+							borderWidth : 3,
 							renderTo : 'stocks',
 							zoomType : 'x'
 						},
@@ -95,13 +121,18 @@
 		//This is the bar chart
 		$
 				.ajax({
-					url : "/stock/emplStrengthShareHolder",
+					url : "/stock/emplStrengthShareHolder/"+selectedCompany,
 					context : document.body
 				})
 				.done(
 						function(data) {
 							var companyData = JSON.parse(data);
 							var desc = companyData.companyInfo.company_desc;
+							$("#company_name")
+									.html(
+											"<h4><span class = 'label label-default'>"
+													+ companyData.companyInfo.company_name
+													+ "</span></h4>");
 							$("#desc").html(desc);
 							$("#indus").html(companyData.companyInfo.industry);
 							$("#marketCap").html(
@@ -124,40 +155,39 @@
 							else
 								$("#yrtoDate").css("color", "red").html(
 										yearTodate);
-							
-							
-							
+
 							var myLatLng = {
-									lat : 39,
-									lng : -122
-								};
-								var map = new google.maps.Map(document.getElementById('map-canvas'), {
-									center : myLatLng,
-									scrollwheel : false,
-									zoom : 4
-								});
+								lat : 39,
+								lng : -122
+							};
+							var map = new google.maps.Map(document
+									.getElementById('map-canvas'), {
+								center : myLatLng,
+								scrollwheel : false,
+								zoom : 4
+							});
 
 							var bounds = new google.maps.LatLngBounds();
 							var lat = companyData.companyInfo.lat;
 							var lon = companyData.companyInfo.lon;
 							var icon = "http://maps.google.com/mapfiles/ms/icons/yellow.png";
 
-							var latlng = new google.maps.LatLng(parseFloat(lat), parseFloat(lon));
+							var latlng = new google.maps.LatLng(
+									parseFloat(lat), parseFloat(lon));
 							var marker = new google.maps.Marker({
 								position : latlng,
 								map : map,
 								animation : google.maps.Animation.DROP,
 								icon : new google.maps.MarkerImage(icon)
 							})
-							var infowindow =  new google.maps.InfoWindow({
-								content: companyData.companyInfo.address,
-								map: map
+							var infowindow = new google.maps.InfoWindow({
+								content : companyData.companyInfo.address,
+								map : map
 							});
 							marker.addListener('mouseover', function() {
-							    infowindow.open(map, this);
+								infowindow.open(map, this);
 							});
-							
-							
+
 							var categories = [], values = [];
 							for (var i = 0; i < companyData.strength.length; i++) {
 								categories.push(companyData.strength[i].year);
@@ -249,7 +279,7 @@
 		//HighStock current price indicator
 
 		$.ajax({
-			url : "/stock/stockHighLowCompany",
+			url : "/stock/stockHighLowCompany/"+selectedCompany,
 			context : document.body
 		}).done(
 				function(data) {
@@ -269,7 +299,7 @@
 					$('#chart').highcharts('StockChart', {
 
 						chart : {
-							borderWidth: 3,
+							borderWidth : 3,
 							marginRight : 10
 						},
 
@@ -302,47 +332,48 @@
 					});
 				});
 
-	});
+	}
 </script>
 
 </head>
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="80" data-spy="affix">>
-<nav class="navbar navbar-grey" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbarCollapse">
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span>
-				</button>
-				<!--   
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="80"
+	data-spy="affix">
+	>
+	<nav class="navbar navbar-grey" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbarCollapse">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<!--   
 				<a class="navbar-brand" href="/stock/">Brand</a> 
 				-->
-                <a class="navbar-brand" href="/stock/">
-                    <img class="logo" src="/stock/resources/images/stock-logo.png" alt="stock"> 
-                </a>
-			</div>
-
-			<div class="collapse navbar-collapse navbarCollapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="/stock/">DashBoard</a></li>
-					<li><a href="/stock/markets">Markets</a></li>
-					<li><a href="/stock/currency">Money</a></li>
-					<li><a href="/stock/company">Company</a></li>
-				</ul>
-			</div>
+			<a class="navbar-brand" href="/stock/"> <img class="logo"
+				src="/stock/resources/images/stock-logo.png" alt="stock">
+			</a>
 		</div>
+
+		<div class="collapse navbar-collapse navbarCollapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active"><a href="/stock/">DashBoard</a></li>
+				<li><a href="/stock/markets">Markets</a></li>
+				<li><a href="/stock/currency">Money</a></li>
+				<li><a href="/stock/company">Company</a></li>
+			</ul>
+		</div>
+	</div>
 	</nav>
-	<input type="hidden" id="priceData">
-	</input>
+
 	<div class="container" bg-color="#C0C0C0">
+		<input name = "companyListId" list="company_list">
+		<datalist id="company_list"></datalist>
+		</input>
+		<input type = "button" value = "Search" id = "searchId" onClick = "populateCompanyDetails()"/>
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<h1>
-					<div id="company_name">
-						<span class="label label-default">Facebook</span>
-					</div>
+				<div id="company_name"></div>
 				</h1>
 				<div class="grid">
 					<div class="row">
@@ -354,13 +385,13 @@
 						</div>
 						<div class="col-md-2">
 							<div class="col-md-12">
-								<label id="change" style="color: red">-4.07/-3.77%</label> <label
-									id="info">Todays Change</label>
+								<label id="change" style="color: red"></label> <label id="info">Todays
+									Change</label>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="col-md-12">
-								<label id="yrtoDate" style="color: green">+33.24%</label> <label
+								<label id="yrtoDate" style="color: green"></label> <label
 									id="info">Year-to-Date</label>
 							</div>
 						</div>
@@ -398,7 +429,7 @@
 						<div class="borderBottom">Company Description</div>
 					</h3>
 					<p>
-					<div id="desc"></div>
+					<div id="desc" style="font-style: san-serif; color: #535353"></div>
 					</p>
 					<h4>
 						<div class="borderBottom">Contact Information</div>
@@ -414,9 +445,9 @@
 					</div>
 				</div>
 				<div id="menu2" class="tab-pane fade">
-						<div id="chart"></div>
+					<div id="chart"></div>
 				</div>
-				
+
 			</div>
 		</div>
 	</div>

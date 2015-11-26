@@ -1,0 +1,9 @@
+{
+	"company_list" :
+		[
+		 {"name":"facebook"},
+		 {"name":"google"},
+		 {"name":"purestorage"},
+		 {"name":"apple"}
+		 ]
+}

@@ -16,6 +16,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -219,16 +220,63 @@ public class BasicController {
 
 	}
 	@RequestMapping(value = "/company", method = RequestMethod.GET)
-	public ModelAndView getCompany(){
+	public ModelAndView getCompany(HttpServletRequest req){
 		ModelAndView mv = new ModelAndView("company_Stock");
+		String filePath = req.getSession().getServletContext().getRealPath("/")+"resources/companyList.json";
+		FileReader reader;
+		try {
+			reader = new FileReader(filePath);
 
-		//mv.addObject("priceData",priceList);
+			//.out.println("file"+file);
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObject;
+			jsonObject = (JSONObject) jsonParser.parse(reader);
+
+			// get an array from the JSON object
+			JSONArray compList= new JSONArray();
+			compList = (JSONArray) jsonObject.get("company_list");
+			mv.addObject("jsonCompanyList",compList);
+			System.out.println(compList);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 		return mv;
 	}
+	
+	@RequestMapping(value = "/companyList", method = RequestMethod.GET)
+	@ResponseBody String getCompanyList(HttpServletRequest req)
+	{
+		String filePath = req.getSession().getServletContext().getRealPath("/")+"resources/companyList.json";
+		FileReader reader;
+		try {
+			reader = new FileReader(filePath);
 
+			//.out.println("file"+file);
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObject;
+			jsonObject = (JSONObject) jsonParser.parse(reader);
+
+			// get an array from the JSON object
+			JSONArray stockData= new JSONArray();
+			stockData = (JSONArray) jsonObject.get("company_list");
+			return stockData.toString();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+
+	}
 	//Per company stock data to be shown on the Home page
-	@RequestMapping(value = "/perCompany", method = RequestMethod.GET)
-	@ResponseBody String getcompany()
+	@RequestMapping(value = "/perCompany/{comp}", method = RequestMethod.GET)
+	@ResponseBody String getcompany(HttpServletRequest req,@PathVariable("comp") String id)
 	{
 		//		DashboardDao dashboardDao = new DashboardDao();
 		//
@@ -250,7 +298,7 @@ public class BasicController {
 		//				stockPrice.addProperty("stockName",name);
 		//				
 		//		return stockPrice.toString();
-		String filePath = "C:\\Users\\Niveditha\\Documents\\SJSU\\Fall 2015\\280\\Project\\src\\main\\java\\JSON_Data\\facebook.json";
+		String filePath = req.getSession().getServletContext().getRealPath("/")+"resources/"+id+".json";
 		FileReader reader;
 		try {
 			reader = new FileReader(filePath);
@@ -275,13 +323,13 @@ public class BasicController {
 	}
 
 	//Per company employee strength
-	@RequestMapping(value = "/emplStrengthShareHolder", method = RequestMethod.GET)
-	@ResponseBody String getEmplStrengthShareHolder(HttpServletRequest req)
+	@RequestMapping(value = "/emplStrengthShareHolder/{comp}", method = RequestMethod.GET)
+	@ResponseBody String getEmplStrengthShareHolder(HttpServletRequest req,@PathVariable("comp") String comp)
 	{
 		//DashboardDao dashBoardDao = new DashboardDao();
 		//JsonArray emplStrength = 
 		//String filePath = "C:\\Users\\Niveditha\\Documents\\SJSU\\Fall 2015\\280\\Project\\src\\main\\java\\JSON_Data\\facebook.json";
-		String filePath = req.getSession().getServletContext().getRealPath("/")+"resources/facebook.json";
+		String filePath = req.getSession().getServletContext().getRealPath("/")+"resources/"+comp+".json";
 		System.out.println();
 		FileReader reader;
 		try {
@@ -311,12 +359,12 @@ public class BasicController {
 		return null;
 	}
 	
-	@RequestMapping(value = "/stockHighLowCompany", method = RequestMethod.GET)
-	@ResponseBody String getOHLCStock(HttpServletRequest req)
+	@RequestMapping(value = "/stockHighLowCompany/{comp}", method = RequestMethod.GET)
+	@ResponseBody String getOHLCStock(HttpServletRequest req,@PathVariable("comp") String comp)
 	{
 		//DashboardDao dashBoardDao = new DashboardDao();
 		//JsonArray emplStrength = 
-		String filePath = req.getSession().getServletContext().getRealPath("/")+"resources/facebook.json";
+		String filePath = req.getSession().getServletContext().getRealPath("/")+"resources/"+comp+".json";
 		FileReader reader;
 		try {
 			reader = new FileReader(filePath);
