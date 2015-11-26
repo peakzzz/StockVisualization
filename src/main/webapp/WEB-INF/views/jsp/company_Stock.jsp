@@ -4,6 +4,7 @@
 <title>Bootstrap Case</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -16,30 +17,11 @@
 <script src="http://code.highcharts.com/stock/highstock.js"></script>
 <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
 <link rel="stylesheet" href="/stock/resources/core/css/style.css">
-
+<link rel="stylesheet" href="/stock/resources/core/css/hello.css">
 <script type="text/javascript">
 	function initMap() {
-		var myLatLng = {
-			lat : 39,
-			lng : -122
-		};
-		var map = new google.maps.Map(document.getElementById('map-canvas'), {
-			center : myLatLng,
-			scrollwheel : false,
-			zoom : 4
-		});
-
-		var bounds = new google.maps.LatLngBounds();
-		var icon = "http://maps.google.com/mapfiles/ms/icons/" + icon + ".png";
-
-		var latlng = new google.maps.LatLng("37.483403", "-122.149513");
-		var marker = new google.maps.Marker({
-			position : latlng,
-			map : map,
-			animation : google.maps.Animation.DROP,
-			icon : new google.maps.MarkerImage(icon)
-		})
-
+		
+		
 	}
 	$(function() {
 		//Initializing map
@@ -54,7 +36,6 @@
 		}).done(
 				function(data) {
 					dataa = JSON.parse(data);
-					//var priceList = dataa.priceList;
 					var series = [];
 					for (var i = 0; i < dataa.length; i++) {
 
@@ -66,6 +47,7 @@
 					series = series.reverse();
 					window.chart = new Highcharts.StockChart({
 						chart : {
+							borderWidth: 3,
 							renderTo : 'stocks',
 							zoomType : 'x'
 						},
@@ -111,18 +93,82 @@
 		});
 
 		//This is the bar chart
-		$.ajax({
+		$
+				.ajax({
 					url : "/stock/emplStrengthShareHolder",
 					context : document.body
 				})
 				.done(
 						function(data) {
-							var strength = JSON.parse(data);
+							var companyData = JSON.parse(data);
+							var desc = companyData.companyInfo.company_desc;
+							$("#desc").html(desc);
+							$("#indus").html(companyData.companyInfo.industry);
+							$("#marketCap").html(
+									companyData.companyInfo.market_cap);
+							$("#sector").html(companyData.companyInfo.sector);
+							$("#delayed").html(
+									companyData.companyInfo.delayed_data);
+							var ini = companyData.companyInfo.initial;
+							var finalv = companyData.companyInfo.final;
+							if (ini > finalv)
+								$("#change").css("color", "red").html(
+										ini + "/" + finalv + "%");
+							else
+								$("#change").css("color", "green").html(
+										ini + "/" + finalv + "%");
+							var yearTodate = companyData.companyInfo.year_to_date;
+							if (yearTodate.indexOf("+") > 0)
+								$("#yrtoDate").css("color", "green").html(
+										yearTodate);
+							else
+								$("#yrtoDate").css("color", "red").html(
+										yearTodate);
+							
+							
+							
+							var myLatLng = {
+									lat : 39,
+									lng : -122
+								};
+								var map = new google.maps.Map(document.getElementById('map-canvas'), {
+									center : myLatLng,
+									scrollwheel : false,
+									zoom : 4
+								});
+
+							var bounds = new google.maps.LatLngBounds();
+							var lat = companyData.companyInfo.lat;
+							var lon = companyData.companyInfo.lon;
+							var icon = "http://maps.google.com/mapfiles/ms/icons/yellow.png";
+
+							var latlng = new google.maps.LatLng(parseFloat(lat), parseFloat(lon));
+							var marker = new google.maps.Marker({
+								position : latlng,
+								map : map,
+								animation : google.maps.Animation.DROP,
+								icon : new google.maps.MarkerImage(icon)
+							})
+							var infowindow =  new google.maps.InfoWindow({
+								content: companyData.companyInfo.address,
+								map: map
+							});
+							marker.addListener('mouseover', function() {
+							    infowindow.open(map, this);
+							});
+							
+							
 							var categories = [], values = [];
-							for(var i = 0; i< strength.length; i++){
-								categories.push(strength[i].year);
-								values.push(strength[i].strength);
+							for (var i = 0; i < companyData.strength.length; i++) {
+								categories.push(companyData.strength[i].year);
+								values.push(companyData.strength[i].strength);
 							}
+							var pieChartData = [];
+							for (var i = 0; i < companyData.pie.length; i++) {
+								pieChartData.push([ companyData.pie[i].name,
+										parseFloat(companyData.pie[i].data) ])
+							}
+							pieChartData = pieChartData.reverse();
 							$('#emp_strength')
 									.highcharts(
 											{
@@ -133,7 +179,7 @@
 													text : 'Employee Strength'
 												},
 												xAxis : {
-													categories :categories,
+													categories : categories,
 													crosshair : true
 												},
 												yAxis : {
@@ -158,7 +204,7 @@
 												},
 												series : [ {
 													name : 'Employees',
-													data :values
+													data : values
 
 												} ]
 											})
@@ -196,89 +242,98 @@
 												},
 												series : [ {
 													name : 'Brands',
-													data : [
-															{
-																name : 'Individual Stakeholders',
-																y : 4.84
-															},
-															{
-																name : 'Mutual Fund holders',
-																y : 37.05,
-																sliced : true,
-																selected : true
-															},
-															{
-																name : 'Other Institutional',
-																y : 33.46
-															},
-															{
-																name : 'Company Emplyees',
-																y : 24.65
-															} ]
+													data : pieChartData
 												} ]
 											});
 						});
 		//HighStock current price indicator
 
-		$
-				.getJSON(
-						'http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-ohlc.json&callback=?',
-						function(data) {
+		$.ajax({
+			url : "/stock/stockHighLowCompany",
+			context : document.body
+		}).done(
+				function(data) {
+					dataa = JSON.parse(data);
+					var series = [];
+					for (var i = 0; i < dataa.length; i++) {
 
-							// create the chart
-							$('#chart')
-									.highcharts(
-											'StockChart',
-											{
+						series.push([ Date.parse(dataa[i].date),
+								parseFloat(dataa[i].open),
+								parseFloat(dataa[i].high),
+								parseFloat(dataa[i].low),
+								parseFloat(dataa[i].close) ]);
 
-												chart : {
-													marginRight : 40
-												},
+					}
+					series = series.reverse();
+					// create the chart
+					$('#chart').highcharts('StockChart', {
 
-												rangeSelector : {
-													inputEnabled : $(
-															'#container')
-															.width() > 480,
-													selected : 1
-												},
+						chart : {
+							borderWidth: 3,
+							marginRight : 10
+						},
 
-												title : {
-													text : 'Highstock Current Price Indicator'
-												},
+						rangeSelector : {
+							inputEnabled : $('#container').width() > 480,
+							selected : 1
+						},
 
-												series : [ {
-													type : 'candlestick',
-													name : 'AAPL Stock Price',
-													data : data,
-													dataGrouping : {
-														units : [
-																[ 'week', // unit name
-																[ 1 ] // allowed multiples
-																],
-																[
-																		'month',
-																		[
-																				1,
-																				2,
-																				3,
-																				4,
-																				6 ] ] ]
-													}
-												} ],
+						title : {
+							text : 'Highstock Current Price Indicator'
+						},
 
-												yAxis : {
-													opposite : true,
-													labels : {
-														x : 20
-													}
-												}
-											});
-						});
+						series : [ {
+							type : 'candlestick',
+							name : 'AAPL Stock Price',
+							data : series,
+							dataGrouping : {
+								units : [ [ 'week', // unit name
+								[ 1 ] // allowed multiples
+								], [ 'month', [ 1, 2, 3, 4, 6 ] ] ]
+							}
+						} ],
+
+						yAxis : {
+							opposite : true,
+							labels : {
+								x : 20
+							}
+						}
+					});
+				});
+
 	});
 </script>
 
 </head>
-<body>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="80" data-spy="affix">>
+<nav class="navbar navbar-grey" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbarCollapse">
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<!--   
+				<a class="navbar-brand" href="/stock/">Brand</a> 
+				-->
+                <a class="navbar-brand" href="/stock/">
+                    <img class="logo" src="/stock/resources/images/stock-logo.png" alt="stock"> 
+                </a>
+			</div>
+
+			<div class="collapse navbar-collapse navbarCollapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="/stock/">DashBoard</a></li>
+					<li><a href="/stock/markets">Markets</a></li>
+					<li><a href="/stock/currency">Money</a></li>
+					<li><a href="/stock/company">Company</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	<input type="hidden" id="priceData">
 	</input>
 	<div class="container" bg-color="#C0C0C0">
@@ -293,19 +348,19 @@
 					<div class="row">
 						<div class="col-md-2">
 							<div class="col-md-12">
-								<label id="delayed">103.95</label> <label id="info">Delayed
+								<label id="delayed"></label> <label id="info">Delayed
 									Data as Nov 19</label>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="col-md-12">
-								<label id="delayed" style="color: red">-4.07/-3.77%</label> <label
+								<label id="change" style="color: red">-4.07/-3.77%</label> <label
 									id="info">Todays Change</label>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="col-md-12">
-								<label id="delayed" style="color: green">+33.24%</label> <label
+								<label id="yrtoDate" style="color: green">+33.24%</label> <label
 									id="info">Year-to-Date</label>
 							</div>
 						</div>
@@ -316,7 +371,6 @@
 				<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
 				<li><a data-toggle="tab" href="#menu1">Profile</a></li>
 				<li><a data-toggle="tab" href="#menu2">Charts</a></li>
-				<li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
 			</ul>
 
 			<div class="tab-content">
@@ -328,13 +382,13 @@
 						<tbody>
 							<tr>
 								<td class="wsod_tdfirst">SECTOR
-									<div>Technology Services</div>
+									<div id="sector"></div>
 								</td>
 								<td>INDUSTRY
-									<div>Internet Software/Services</div>
+									<div id="indus"></div>
 								</td>
 								<td class="wsod_tdfirst">MARKET CAP
-									<div>$294.0B</div>
+									<div id="marketCap"></div>
 								</td>
 
 							</tr>
@@ -343,15 +397,9 @@
 					<h3>
 						<div class="borderBottom">Company Description</div>
 					</h3>
-					<p>Facebook, Inc. is a social networking service and website.
-						Its website allows people to communicate with their family,
-						friends, and coworkers. The company offers advertisers a
-						combination of reach, relevance, social context, and engagement to
-						enhance the value of their ads. Its services include timeline,
-						news feed, messages, lists, ticker and mobile apps. Facebook was
-						founded by Mark Elliot Zuckerberg, Dustin Moskovitz, Chris R.
-						Hughes, Andrew McCollum and Eduardo P. Saverin on February 4, 2004
-						and is headquartered in Menlo Park, CA.</p>
+					<p>
+					<div id="desc"></div>
+					</p>
 					<h4>
 						<div class="borderBottom">Contact Information</div>
 					</h4>
@@ -366,13 +414,9 @@
 					</div>
 				</div>
 				<div id="menu2" class="tab-pane fade">
-					<div class="col-md-12" id="chart"></div>
+						<div id="chart"></div>
 				</div>
-				<div id="menu3" class="tab-pane fade">
-					<h3>Menu 3</h3>
-					<p>Eaque ipsa quae ab illo inventore veritatis et quasi
-						architecto beatae vitae dicta sunt explicabo.</p>
-				</div>
+				
 			</div>
 		</div>
 	</div>

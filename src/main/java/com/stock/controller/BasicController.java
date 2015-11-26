@@ -3,12 +3,17 @@ package com.stock.controller;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -255,7 +260,6 @@ public class BasicController {
 			JSONObject jsonObject;
 			jsonObject = (JSONObject) jsonParser.parse(reader);
 
-			System.out.println("before stocockdatae");
 			// get an array from the JSON object
 			JSONArray stockData= new JSONArray();
 			stockData = (JSONArray) jsonObject.get("stock_data");
@@ -272,19 +276,56 @@ public class BasicController {
 
 	//Per company employee strength
 	@RequestMapping(value = "/emplStrengthShareHolder", method = RequestMethod.GET)
-	@ResponseBody String getEmplStrengthShareHolder()
+	@ResponseBody String getEmplStrengthShareHolder(HttpServletRequest req)
 	{
 		//DashboardDao dashBoardDao = new DashboardDao();
 		//JsonArray emplStrength = 
-		String filePath = "C:\\Users\\Niveditha\\Documents\\SJSU\\Fall 2015\\280\\Project\\src\\main\\java\\JSON_Data\\facebook.json";
+		//String filePath = "C:\\Users\\Niveditha\\Documents\\SJSU\\Fall 2015\\280\\Project\\src\\main\\java\\JSON_Data\\facebook.json";
+		String filePath = req.getSession().getServletContext().getRealPath("/")+"resources/facebook.json";
+		System.out.println();
 		FileReader reader;
 		try {
 			reader = new FileReader(filePath);
 			JSONParser jsonParser = new JSONParser();
-			JSONObject jsonObject;
-			jsonObject = (JSONObject) jsonParser.parse(reader);			
+			JSONObject jsonObject,objToSend;
+			jsonObject = (JSONObject) jsonParser.parse(reader);	
+			
 			JSONArray strength= new JSONArray();
 			strength = (JSONArray) jsonObject.get("company_strength");
+			
+			JSONArray pie= new JSONArray();
+			pie = (JSONArray) jsonObject.get("share_holders");
+			
+			objToSend = new JSONObject();
+			objToSend.put("companyInfo", jsonObject.get("company_data"));
+			objToSend.put("strength",strength);
+			objToSend.put("pie",pie);
+			return objToSend.toString();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	@RequestMapping(value = "/stockHighLowCompany", method = RequestMethod.GET)
+	@ResponseBody String getOHLCStock(HttpServletRequest req)
+	{
+		//DashboardDao dashBoardDao = new DashboardDao();
+		//JsonArray emplStrength = 
+		String filePath = req.getSession().getServletContext().getRealPath("/")+"resources/facebook.json";
+		FileReader reader;
+		try {
+			reader = new FileReader(filePath);
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObject,objToSend;
+			jsonObject = (JSONObject) jsonParser.parse(reader);			
+			JSONArray strength= new JSONArray();
+			strength = (JSONArray) jsonObject.get("stock_ohlc");
+			
 			return strength.toString();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -295,4 +336,6 @@ public class BasicController {
 		}
 		return null;
 	}
+	
+	
 }
