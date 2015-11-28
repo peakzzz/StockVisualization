@@ -1,0 +1,9 @@
+{
+	"jsonMarketPopularStock":[
+		{"key":"Bank of America","value":3},
+		{"key":"Citigroup","value":3},
+		{"key":"Disney","value":2},
+		{"key":"NVIDIA Corp","value":13},
+		{"key":"Quorvo Inc","value":23}
+		]
+}

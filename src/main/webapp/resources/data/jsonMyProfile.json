@@ -1,0 +1,11 @@
+{
+	"jsonMyProfile":[
+		{"key":"Google","value":8},
+		{"key":"Yahoo","value":7},
+		{"key":"FB","value":5},
+		{"key":"Tesla","value":-4},
+		{"key":"HP","value":-3},
+		{"key":"CONSOL Energy Inc","value":-2},
+		{"key":"Owens-Illinois Inc","value":-1}
+		]
+}

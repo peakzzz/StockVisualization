@@ -1,0 +1,9 @@
+{
+	"jsonMarketCommodity":[
+			{"key":"Corn","value":360},
+			{"key":"Gas","value":3},
+			{"key":"Gold","value":1082},
+			{"key":"Oil","value":42},
+			{"key":"Silver","value":15}
+			]
+}
