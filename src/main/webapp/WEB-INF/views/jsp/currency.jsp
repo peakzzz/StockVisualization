@@ -2,7 +2,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
+<head>
 <%@ include file="main.jsp" %>
+
+<style type="text/css">
+#currency-widget {
+    width:223px;
+}
+</style>
+</head>
 <body>
 <header class="masthead">
   <div class="container">
@@ -23,7 +31,18 @@
 		<ul>
 			<li><a href="/stock/resources/examples/tooltip/currencyMap.jsp">World Currency Map</a></li>
 		</ul>
-          <h1><small>Update Country Currencies</small></h1>
+          <h1><small>Update Country Currency</small></h1>
+         
+			<!-- CURRENCY CONVERTER CODE START -->
+				<div id="cc_xxDIV">
+				  <div style="text-align:center; padding:10px; font-size: 11px;width:215px;">
+				    <p><img src="http://tools.currenciesdirect.net/wait.gif" alt="Currency converter" /></p>
+				    <p>Loading currency converter</a></p>
+				    <p>Please wait<br />....</p>
+				   </div>
+				</div>
+				<script type="text/javascript" src="http://tools.currenciesdirect.net/cd.currency.html.js"></script>
+			<!-- CURRENCY CONVERTER CODE END -->
         </div>
         </div>
         
@@ -157,12 +176,15 @@ That's just for starters. Someday your body may have its own set of Internet of 
       	</div> 
 </div>
 
-
-
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/scripts.js"></script>
+		
+		<!-- Highmaps -->
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
 	</body>
 </html>
 
