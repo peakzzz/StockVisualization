@@ -2,6 +2,7 @@
 	"jsonMyProfileGain":[
 		{"key":"Google","value":8},
 		{"key":"Yahoo","value":7},
-		{"key":"FB","value":5}
+		{"key":"FB","value":5},
+		{"key":"Wells Fargo & co","value":1}
 	]
 }

@@ -11,6 +11,12 @@ body {
 	margin:0;
 	padding:0px;
 	height:100%;
+	width:100%;
+	background: url("/stock/resources/images/background.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 /* Dash board layout styling */
@@ -28,6 +34,7 @@ body {
 	padding-bottom:100px; /* Height of the footer element */
 }
 
+/* Color settings */
 #modalblue {
   width: 560px;
   background-color: #e0e0e0;
@@ -39,6 +46,40 @@ body {
   background-color:green;
 }
 
+.grey {
+	color: #888888;
+}
+
+.red {
+	color: #d9534f;
+}
+
+.green {
+	color: #5cb85c;
+}
+
+.footer-grey {
+	background: -webkit-linear-gradient(#686868, #303030); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#686868, #303030); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#686868, #303030); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#686868, #303030); /* Standard syntax (must be last) */
+    height: 100px;
+	padding: 25px;
+	color: white;
+}
+
+.white {
+	background-color:white;
+}
+
+.footer-image {
+	max-height: 95px;
+}
+
+.footer-bg-image {
+	background-image:url("/stock/resources/images/footer.jpg");
+}
+
 table.test td {
 	border: 1;
     background-color: #ccccff;
@@ -48,24 +89,32 @@ table.test td {
 }
 
 #footer {
-	border-top-style: solid;
+	width: 100%;
+    bottom:0;
+    left:0;
+	right:0;
+    /*
+    position:absolute;
+    border-top-style: solid;
+	height: 100px;
 	border-color: black;
 	background-color: black;
-	width: 100%;
-	height: 100px;
-	position:absolute;
-	bottom:0px;
+    */
 	text-align: center;
-	left: 0;
-	font-size: 16px;
+	font-size: 18px;
 }
 
 /* Bootstrap navigation styling */
 nav a {
-  padding-top: 20px !important;
-  padding-bottom: 20px !important;
-  font-size: 18px;
-  color:white
+  	padding-top: 20px !important;
+  	padding-bottom: 20px !important;
+  	font-size: 1.25em;
+  	color:white
+}
+
+nav a:hover {
+	/* background-color:white; */
+    color: green !important;
 }
 
 .navbar-brand {
@@ -78,10 +127,10 @@ nav a {
 }
 
 .logo {
-    width: 180px;
-    height: 50px;
+    width: 160px;
+    height: 40px;
     position: absolute;
-    top: 5px;
+    top: 7px;
     background-color: white;
 }
 
@@ -90,7 +139,7 @@ nav a {
 .panel-green {
     border-color: #5cb85c;
 }
-*/
+
 
 .panel-green .panel-heading {
     border-color: #009933;
@@ -129,9 +178,135 @@ nav a {
     background-color: orange;
     color: black;
 }
+*/
 
-/* Bootstrap nav bar styling */
+/* Settings for tree map */
+.node {
+	cursor: pointer;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+}
+
+
+/* Bootstrap navigation bar styling */
 .fixed-nav {
 	position: fixed;
     top: 200;
+}
+
+/* Dash board styling */
+.huge {
+    font-size: 40px;
+}
+
+.big {
+	font-size: 25px;
+}
+
+.medium {
+	font-size: 20px;
+}
+
+.panel-green {
+    border-color: #5cb85c;
+}
+
+.panel-green .panel-heading {
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c;
+}
+
+.panel-green a {
+    color: #5cb85c;
+}
+
+.panel-green a:hover {
+    color: #3d8b3d;
+}
+
+.panel-red {
+    border-color: #d9534f;
+}
+
+.panel-red .panel-heading {
+    border-color: #d9534f;
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.panel-red a {
+    color: #d9534f;
+}
+
+.panel-red a:hover {
+    color: #b52b27;
+}
+
+.panel-yellow {
+    border-color: #f0ad4e;
+}
+
+.panel-yellow .panel-heading {
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e;
+}
+
+.panel-yellow a {
+    color: #f0ad4e;
+}
+
+.panel-yellow a:hover {
+    color: #df8a13;
+}
+
+.panel-white .panel-heading {
+    color: black;
+    background-color: white;
+}
+
+.panel-white a {
+    color: #3d8b3d;
+    text-decoration: none;
+}
+
+.panel-white a:hover {
+    color: blue;
+}
+
+.nav-pills > li > a {
+	color: white !important;
+	font-size: 1.25em;
+}
+
+.nav-pills > li > a:hover {
+	background-color:white;
+    color: green !important;
+}
+
+/* This changes the color of the active */
+.nav-pills > li.active > a {
+    background-color:green;
+    color: white !important;
+}
+
+/* This changes the color of the hovered pill */
+.nav-pills > li.active > a:hover {
+    background-color:green;
+    color: white !important; 
 }

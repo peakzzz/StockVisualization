@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="/stock/resources/core/css/bootstrap.min.css">
   <link rel="stylesheet" href="/stock/resources/core/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="/stock/resources/core/css/hello.css">
+  
+  <link rel="shortcut icon" href="/stock/resources/images/stock-favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 </head>
 
@@ -54,10 +57,36 @@
 
 			<div class="collapse navbar-collapse navbarCollapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="/stock/">DashBoard</a></li>
-					<li><a href="/stock/markets">Markets</a></li>
-					<li><a href="/stock/currency">Money</a></li>
-					<li><a href="/stock/company">Company</a></li>
+					<li class="active">
+						<a href="/stock/">
+							<i class="fa fa-dashboard "></i>
+							DashBoard
+						</a>
+					</li>
+					<li>
+						<a href="/stock/markets">
+							<i class="fa fa-line-chart "></i>
+							Markets
+						</a>
+					</li>
+					<li>
+						<a href="/stock/currency">
+							<i class="fa fa-dollar "></i>
+							Money
+						</a>
+					</li>
+					<li>
+						<a href="/stock/company">
+							<i class="fa fa-building "></i>
+							Company
+						</a>
+					</li>
+					<li>
+						<a href="/stock/about">
+							<i class="fa fa-users "></i>
+							AboutUs
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>

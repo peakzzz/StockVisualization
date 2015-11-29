@@ -34,20 +34,104 @@
 	    <div class="panel panel-green panel-default">
 	      <div class="panel-heading">World Markets</div>
 	      <div class="panel-body" id="worldmarkets"></div>
-	          <div class="row">
-	               <div class="col-lg-3 col-md-6">
-	                    <div class="panel panel-primary">
-	                    </div>
-	               </div>
-	               <div class="col-lg-3">Row 1 Col 2</div>
-	          </div>
-	          <div class="row">
-	               <div class="col-lg-3">Row 2 Col 1</div>
-	               <div class="col-lg-3">Row 2 Col 2</div>
-	          </div>
+	          
+	       <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-white">
+                    	<div class="panel-body">
+                        	<div class="row">
+                                <div class="col-xs-6">
+                                    <div class="big" >
+                                    	<a href="http://money.cnn.com/data/world_markets/nikkei225/">Japan</a>
+                                    </div>
+                                    <div class="medium grey">NEKKEI 225</div>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    <div class="huge red">-0.30%</div>
+                                    <div> 19,883.94 </div>
+                                    <div class="red">
+                                    	<i class="fa fa-arrow-down fa-2x red"></i>
+                                    	-60.47
+                                    </div>
+                                </div>
+                            </div>
+                    	</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-white">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="big" >
+                                    	<a href="http://money.cnn.com/data/world_markets/hang_seng/">Hong Kong</a>
+                                    </div>
+                                    <div class="medium grey">HANG SENG</div>
+                                   
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    <div class="huge red">-1.87%
+                                    </div>
+                                    <div> 22,068.32 </div>
+                                    <div class="red">
+                                    	<i class="fa fa-arrow-down fa-2x red"></i>
+                                    	-60.47
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-md-6">
+                    <div class="panel panel-white">
+                    	<div class="panel-body">
+                        	<div class="row">
+                                <div class="col-xs-6">
+                                    <div class="big" >
+                                    	<a href="http://money.cnn.com/data/world_markets/ftse100">London</a>
+                                    </div>
+                                    <div class="medium grey">FTSE 100</div>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    <div class="huge red">-0.28%</div>
+                                    <div> 6,375.15 </div>
+                                    <div class="red">
+                                    	<i class="fa fa-arrow-down fa-2x red"></i>
+                                    	-17.63
+                                    </div>
+                                </div>
+                            </div>
+                    	</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-white">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="big" >
+                                    	<a href="hhttp://money.cnn.com/data/world_markets/dax/">Germany</a>
+                                    </div>
+                                    <div class="medium grey">DAX</div>
+                                </div>
+                                <div class="col-xs-6 text-right">
+                                    <div class="huge green">+1.87%</div>
+                                    <div> 11,293.76 </div>
+                                    <div class="green">
+                                    	<i class="fa fa-arrow-up fa-2x green"></i>
+                                    	+60.47
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
 	    </div> 
 	  </div>
-
+	  
       <div id="section3">
 	    <div class="panel panel-green panel-default">
 	      <div class="panel-heading">Gainers and Losers</div>

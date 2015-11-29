@@ -37,6 +37,13 @@ public class BasicController {
 
 	String json_File = "JSON_Data.json";
 
+	@RequestMapping(value = "/about", method = RequestMethod.GET)
+	public ModelAndView showTeam() {
+		System.out.println("In About Us Page");
+
+		ModelAndView mv = new ModelAndView("about");
+		return mv;
+	}
 	
 	@RequestMapping(value = "/currency", method = RequestMethod.GET)
 	public ModelAndView showMoney() {

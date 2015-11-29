@@ -1,0 +1,47 @@
+{
+	
+			"treeData" : [
+				  {
+				    "name": "Sector",
+				    "parent": "null",
+				    "children": [
+				      {
+				        "name": "Financial",
+				        "parent": "Sector",
+				        "children": [
+				          {
+				            "name": "Wells Fargo & co",
+				            "parent": "Financial"
+				          },
+				          {
+				            "name": "Visa Inc",
+				            "parent": "Financial"
+				          }
+				        ]
+				      },
+				      {
+				        "name": "Health Care",
+				        "parent": "Sector",
+				         "children": [
+				          {
+				            "name": "Novartis AG",
+				            "parent": "Health Care"
+				          }]
+				      },
+				        {
+				        "name": "Technology",
+				        "parent": "Sector",
+				         "children": [
+				          {
+				            "name": "Facebook",
+				            "parent": "Technology"
+				          },  {
+				            "name": "Google",
+				            "parent": "Technology"
+				          }]
+				      }
+				    ]
+				  }
+				]
+			
+}

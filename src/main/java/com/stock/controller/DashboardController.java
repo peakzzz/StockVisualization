@@ -2,10 +2,7 @@ package com.stock.controller;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -16,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.stock.dao.DashboardDao;
-import com.stock.model.MyProfile;
+
 
 
 @Controller 
@@ -34,9 +28,11 @@ public class DashboardController {
 		JSONArray jsonMyProfileGain= new JSONArray();
 		JSONArray jsonMyProfileLoss = new JSONArray();
 		JSONArray jsonMyProfile = new JSONArray();
+		JSONArray jsonMyInvestmentSector = new JSONArray();
 		String filePath = req.getSession().getServletContext().getRealPath("/")+"resources/data/jsonMyProfileGain.json";
 		String jsonMyProfileLossFilePath = req.getSession().getServletContext().getRealPath("/")+"resources/data/jsonMyProfileLoss.json";
 		String jsonMyProfileFilePath = req.getSession().getServletContext().getRealPath("/")+"resources/data/jsonMyProfile.json";
+		String jsonMyInvestmentSectorFilePath = req.getSession().getServletContext().getRealPath("/")+"resources/data/jsonMyInvestmentSector.json";
 		FileReader reader;
 		try {
 			//System.out.println("filepath ="+filePath);
@@ -57,6 +53,12 @@ public class DashboardController {
 			jsonObject = (JSONObject) jsonParser.parse(reader);
 			// get an array from the JSON object		
 			jsonMyProfile = (JSONArray) jsonObject.get("jsonMyProfile");
+			reader = new FileReader(jsonMyInvestmentSectorFilePath);
+			jsonObject = (JSONObject) jsonParser.parse(reader);
+			// get an array from the JSON object		
+			jsonMyInvestmentSector =  (JSONArray) jsonObject.get("treeData");
+			
+			System.out.println("jsonMyInvestmentSector"+jsonMyInvestmentSector);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -113,6 +115,7 @@ public class DashboardController {
         mv.addObject("jsonMyProfile",jsonMyProfile);
         mv.addObject("jsonMyProfileLoss",jsonMyProfileLoss);
         mv.addObject("jsonMyProfileGain",jsonMyProfileGain);
+        mv.addObject("jsonMyInvestmentSector",jsonMyInvestmentSector);
         return mv;
 	}	
 	
