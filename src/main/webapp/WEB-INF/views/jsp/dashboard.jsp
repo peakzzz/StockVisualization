@@ -20,8 +20,8 @@
                                     <i class="fa fa-sort-amount-desc fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>Date</div>
+                                    <div class="big">${day}</div>
+                                    <div>${date}</div>
                                 </div>
                             </div>
                         </div>
@@ -42,8 +42,8 @@
                                     <i class="fa fa-money fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>Gain</div>
+                                    <div class="big">${total}</div>
+                                    <div>${totalChange}</div>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                                     <i class="fa fa-star fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
+                                    <div class="big">124</div>
                                     <div>Most success</div>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                                     <i class="fa fa-tachometer fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">58</div>
+                                    <div class="big">58</div>
                                     <div>Greed</div>
                                 </div>
                             </div>
@@ -190,15 +190,10 @@
 	</div>
 
 
-	<div class="col-md-12">
-		<div class="panel panel-green panel-default">
-	      	<div class="panel-heading">My Profile</div>
-	      	<div class="panel-body" id="dashpanel">
-	       		<div class="col-md-12" id="stocktable"></div>
-	       		<div class="col-md-12">My Investment Sector
-	       			<div id="MyInvestmentSector"></div>
-	       		</div>
-	       		
+		<div class="col-md-12">
+		<div class="panel panel-green panel-default" id="profitloss">
+	      	<div class="panel-heading">Profit & Loss</div>
+	      	<div class="panel-body">
 	       		<div class="row">
 	               <div class="col-md-6">
 	       		       <div id="gainpanel"></div>
@@ -207,10 +202,67 @@
 	       		       <div id="losspanel"></div>
 	       		   </div>
 	       		</div>
-	       		<div class="row">
-	               <div class="col-md-6">
-	       		       <div id="sankey_multiple"></div>
-	       		   </div>
+	  		</div>    	
+	    </div>
+	</div>
+
+	<div class="col-md-12">
+		<div class="panel panel-green panel-default" id="portfolio">
+	      	<div class="panel-heading">Portfolio</div>
+	      	<div class="panel-body">
+	      			<h3 class="green">Stocks</h3>
+	       			<div class="col-md-9" id="stocktable"></div>
+	       			<div class="col-md-3">
+						<div class="row">
+							<div class="col-md-12">
+                    			<div class="panel panel-white">
+                        			<div class="panel-heading">
+                            			<div class="row">
+                                			<div class="col-xs-6 medium"> Total Companies </div>
+                                			<div class="col-xs-6 text-right">
+                                    			<div class="medium green">10</div>  
+                                			</div>
+                            			</div>
+                        			</div>
+                    			</div>
+                			</div>
+           				</div>
+           				<div class="row">
+							<div class="col-md-12">
+                    			<div class="panel panel-white">
+                        			<div class="panel-heading">
+                            			<div class="row">
+                                			<div class="col-xs-6 medium"> Total Sectors </div>
+                                			<div class="col-xs-6 text-right">
+                                    			<div class="medium green">3</div>  
+                                			</div>
+                            			</div>
+                        			</div>
+                    			</div>
+                			</div>
+           				</div>
+           				<div class="row">
+							<div class="col-md-12">
+                    			<div class="panel panel-white">
+                        			<div class="panel-heading">
+                            			<div class="row">
+                                			<div class="col-xs-6 medium"> Number of Investments </div>
+                                			<div class="col-xs-6 text-right">
+                                    			<div class="medium green">2</div>  
+                                			</div>
+                            			</div>
+                        			</div>
+                    			</div>
+                			</div>
+           				</div>
+	       			</div>
+	       			
+	       			
+	       		<div class="col-md-12"><h3 class="green">My Investment Sector</h3>
+	       			<div id="MyInvestmentSector"></div>
+	       		</div>
+	         	<div class="col-md-12"><h3 class="green">Investment Flow</h3>
+	       			<div id="sankey_multiple"></div>
 	       		</div>
 	  		</div>    	
 	    </div>
@@ -272,6 +324,7 @@ window.onload = function() {
 	createDashPie('gainpanel','My Gain',jsonMyProfileGain);
 	createDashDonut('losspanel','My Loss',jsonMyProfileLoss);
 	createTree('MyInvestmentSector','',jsonMyInvestmentSector);
+	timeSeries('timepanel');
 }
 </script>
 

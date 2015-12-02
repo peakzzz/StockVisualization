@@ -14,6 +14,7 @@
   <script src="/stock/resources/core/js/bootstrap.min.js"></script>
   <script src="/stock/resources/core/js/highcharts.js"></script>
   <script src="/stock/resources/core/js/highcharts-3d.js"></script>
+  <script src="/stock/resources/core/js/modules/exporting.js"></script>
   <script src="/stock/resources/core/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   

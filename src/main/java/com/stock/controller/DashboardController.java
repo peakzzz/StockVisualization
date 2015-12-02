@@ -2,6 +2,11 @@ package com.stock.controller;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 import javax.servlet.http.HttpServletRequest;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -33,6 +38,14 @@ public class DashboardController {
 		String jsonMyProfileLossFilePath = req.getSession().getServletContext().getRealPath("/")+"resources/data/jsonMyProfileLoss.json";
 		String jsonMyProfileFilePath = req.getSession().getServletContext().getRealPath("/")+"resources/data/jsonMyProfile.json";
 		String jsonMyInvestmentSectorFilePath = req.getSession().getServletContext().getRealPath("/")+"resources/data/jsonMyInvestmentSector.json";
+		// Variables for day and date
+		String day = "";
+		String dateToday = "";
+		// Variables for total profit/loss
+		String total = "";
+		String totalChange = "";
+		String jsonDashboard = req.getSession().getServletContext().getRealPath("/")+"resources/data/jsonDashboard.json";
+		
 		FileReader reader;
 		try {
 			//System.out.println("filepath ="+filePath);
@@ -60,6 +73,21 @@ public class DashboardController {
 			
 			System.out.println("jsonMyInvestmentSector"+jsonMyInvestmentSector);
 			
+			// Get the day and date
+			Calendar calendar = Calendar.getInstance();
+			Date date = calendar.getTime();
+			day = new SimpleDateFormat("EE", Locale.ENGLISH).format(date.getTime());
+			SimpleDateFormat formatter= new SimpleDateFormat("MM/dd/yyyy");
+			dateToday = formatter.format(date);
+						
+			// Get the loss/profit in dollars and change value, %
+			reader = new FileReader(jsonDashboard);
+			jsonObject = (JSONObject) jsonParser.parse(reader);
+			// get an array from the JSON object		
+			total = (String) jsonObject.get("total");
+			totalChange = (String) jsonObject.get("totalChange");
+						
+			reader.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -116,6 +144,10 @@ public class DashboardController {
         mv.addObject("jsonMyProfileLoss",jsonMyProfileLoss);
         mv.addObject("jsonMyProfileGain",jsonMyProfileGain);
         mv.addObject("jsonMyInvestmentSector",jsonMyInvestmentSector);
+        mv.addObject("day",day);
+        mv.addObject("date",dateToday);
+        mv.addObject("total",total);
+        mv.addObject("totalChange",totalChange);
         return mv;
 	}	
 	
