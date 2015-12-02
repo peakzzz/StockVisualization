@@ -20,7 +20,7 @@
             	<div class="panel panel-white">
                 	<div class="panel-body">
                 		<h3> Niveditha Hebbar </h3>
-                		<p> sandhya.sadanandan@sjsu.edu </p>
+                		<p> niveditha.hebbar@sjsu.edu </p>
                 	</div>
                 </div>
             </div>
@@ -29,16 +29,16 @@
 			<div class="col-md-6" id="preeti">
             	<div class="panel panel-white">
                 	<div class="panel-body">
-                		<h3> Sandhya Sadanandan </h3>
-                		<p> sandhya.sadanandan@sjsu.edu </p>
+                		<h3> Preeti Krishnan </h3>
+                		<p> preeti.krishnan@sjsu.edu </p>
                 	</div>
                 </div>
             </div>
             <div class="col-md-6" id="priyanka">
             	<div class="panel panel-white">
                 	<div class="panel-body">
-                		<h3> Nivedita Hebbar </h3>
-                		<p> sandhya.sadanandan@sjsu.edu </p>
+                		<h3> Priyanka Bhansali </h3>
+                		<p> piyubhansali@gmail.com </p>
                 	</div>
                 </div>
             </div>
