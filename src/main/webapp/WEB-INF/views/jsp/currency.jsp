@@ -2,16 +2,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
-<head>
 <%@ include file="main.jsp" %>
+<head>
+
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/scripts.js"></script>
+		
+		<script src="/stock/resources/core/js/highstock.js"></script>
+		<script src="/stock/resources/core/js/modules/exporting.js"></script>
+		
+		
+		<!-- Highmaps -->
+		<script src="http://code.highcharts.com/maps/highmaps.js"></script>
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="http://code.highcharts.com/maps/modules/map.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
 
 <style type="text/css">
 #currency-widget {
     width:223px;
 }
 </style>
-</head>
-<body>
+
+
 <header class="masthead">
   <div class="container">
     <div class="row">
@@ -25,36 +41,48 @@
 	<div class="row">
       <div class="col col-sm-12">
   
-        <div class="panel">
-        <div class="panel-body">
-        
-		<ul>
-			<li><a href="/stock/resources/examples/tooltip/currencyMap.jsp">World Currency Map</a></li>
-		</ul>
-          <h1><small>Update Country Currency</small></h1>
-         
-			<!-- CURRENCY CONVERTER CODE START -->
-				<div id="cc_xxDIV">
-				  <div style="text-align:center; padding:10px; font-size: 11px;width:215px;">
-				    <p><img src="http://tools.currenciesdirect.net/wait.gif" alt="Currency converter" /></p>
-				    <p>Loading currency converter</a></p>
-				    <p>Please wait<br />....</p>
-				   </div>
-				</div>
-				<script type="text/javascript" src="http://tools.currenciesdirect.net/cd.currency.html.js"></script>
-			<!-- CURRENCY CONVERTER CODE END -->
+      <div class="panel">
+       <div class="panel-body">    
+        <div class="col-md-12">
+	      
+	      <div id="section1">
+		    <div class="panel panel-green panel-default">
+		      <div class="panel-heading"><h4>World Currencies</h4></div>
+		      
+		      <a href="/stock/resources/examples/tooltip/currencyMap.jsp">
+         		<img src="/stock/resources/images/world_currency.png" class="img-responsive" width="750" height="700" align="middle">
+				</a> 
+				
+		    </div>
+		  </div>
+      	<div id="section2">
+	    <div class="panel panel-green panel-default">
+	      <div class="panel-heading"><h4>Stock Exchange</h4></div>
+	      <div class="panel-body" id="worldmarkets"></div>
+	          
+	       <div class="row">
+                
+			 <a href="/stock/resources/examples/tooltip/index.jsp">
+         		<img src="/stock/resources/images/exchange_rates.png" class="img-responsive" width="780" height="900" align="middle">
+			</a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+	    </div> 
+	  </div>
         </div>
         </div>
-        
-      </div>
-  	</div>
-  </div>
+     
 </header>
-
+</head>
 <!-- Begin Body -->
+<body>
 <div class="container">
 	<div class="row">
   			<div class="col col-sm-3">
+  			<div class="panel">
               	<div id="sidebar">
       			<ul class="nav nav-stacked">
                     <li><h3 class="highlight">World Markets<i class=" pull-right"></i></h3></li>
@@ -91,7 +119,7 @@
                         </tbody>
                       </table>
                </div> 
-               
+               </div>
       		</div>  
       		<div class="col col-sm-9 pull-right">
               <div class="panel">
@@ -136,7 +164,7 @@ That's just for starters. Someday your body may have its own set of Internet of 
                     
                   </div> 
                   <div class="col col-sm-6">
-                    <h3><a href ="http://www.thestreet.com/story/13363838/1/stocks-get-hammered-again-by-oil-selloff-rate-worries.html">Dow dives 254, US oil price around $42</h3>
+                    <h3><a href ="http://www.thestreet.com/story/13363838/1/stocks-get-hammered-again-by-oil-selloff-rate-worries.html">Dow dives 254, US oil price around $42</a></h3>
                     <h4><span class="label label-default">USA Today</span></h4><h4>
                             <small class="text-muted">Posted 3 hours ago </small>
                             </h4>
@@ -168,25 +196,12 @@ That's just for starters. Someday your body may have its own set of Internet of 
               	<h1><a href="#"><i class="glyphicon glyphicon-user"></i> <i class="glyphicon glyphicon-chevron-down"></i> <i class="glyphicon glyphicon-chevron-down"></i></a></h1>
               
               <br><br>
-                <button class="btn btn-default">More...</button>
                 
              	</div>
               
              	</div>
       	</div> 
-</div>
-
-	<!-- script references -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/scripts.js"></script>
 		
-		<!-- Highmaps -->
-		<script src="https://code.highcharts.com/highcharts.js"></script>
-		<script src="https://code.highcharts.com/modules/exporting.js"></script>
-
-	</body>
-</html>
-
+		</body>
 
 <!--<%@ include file="footer.jsp" %> -->
