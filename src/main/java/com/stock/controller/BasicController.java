@@ -63,6 +63,13 @@ public class BasicController {
 
 	}
 	
+	@RequestMapping(value = "/commodity", method = RequestMethod.GET)
+	public ModelAndView showCommodity() {
+		System.out.println("hi i m in Stock Commodity Page");
+		ModelAndView mv = new ModelAndView("commodity");
+		return mv;
+	}
+	
 	@RequestMapping(value = "/company", method = RequestMethod.GET)
 	public ModelAndView getCompany(HttpServletRequest req){
 		ModelAndView mv = new ModelAndView("company_Stock");

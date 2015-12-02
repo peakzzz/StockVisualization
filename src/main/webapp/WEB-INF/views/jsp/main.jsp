@@ -83,6 +83,12 @@
 						</a>
 					</li>
 					<li>
+						<a href="/stock/commodity">
+							<i class="fa fa-puzzle-piece "></i>
+							Commodity
+						</a>
+					</li>
+					<li>
 						<a href="/stock/about">
 							<i class="fa fa-users "></i>
 							AboutUs
