@@ -53,6 +53,16 @@ public class BasicController {
 		return mv;
 
 	}
+	
+	@RequestMapping(value = "/fearGreedIndex", method = RequestMethod.GET)
+	public ModelAndView showFearGreedIndex() {
+		System.out.println("hi i m in Fear Greed Index Page");
+
+		ModelAndView mv = new ModelAndView("fearGreedIndex");
+		return mv;
+
+	}
+	
 	@RequestMapping(value = "/company", method = RequestMethod.GET)
 	public ModelAndView getCompany(HttpServletRequest req){
 		ModelAndView mv = new ModelAndView("company_Stock");
