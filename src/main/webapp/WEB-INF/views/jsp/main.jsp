@@ -6,22 +6,26 @@
   <meta name="description" content="Complete stock market coverage.">
  
   <script src="/stock/resources/core/js/jquery.js"></script>
+  <script src="/stock/resources/core/js/highcharts.js"></script>
+  <script src="/stock/resources/core/js/highcharts-3d.js"></script>
+  <script src="/stock/resources/core/js/highcharts-more.js"></script>
+  <script src="/stock/resources/core/js/highstock.js"></script>
   <script src="/stock/resources/core/js/bootstrap.min.js"></script>
   
   <script src="/stock/resources/core/js/d3.min.js"></script>
-  <script src="/stock/resources/core/js/jquery.js"></script>
+
   <script src="/stock/resources/core/js/angular.min.js"></script>
   <script src="/stock/resources/core/js/bootstrap.min.js"></script>
-  <script src="/stock/resources/core/js/highcharts.js"></script>
-  <script src="/stock/resources/core/js/highcharts-3d.js"></script>
-  <script src="/stock/resources/core/js/modules/exporting.js"></script>
+  
   <script src="/stock/resources/core/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>  
+  <link rel="stylesheet" href="/stock/resources/core/css/jquery.dataTables.min.css">
   
   <link rel="stylesheet" href="/stock/resources/core/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/stock/resources/core/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="/stock/resources/core/css/hello.css">
   
+
   <link rel="shortcut icon" href="/stock/resources/images/stock-favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 

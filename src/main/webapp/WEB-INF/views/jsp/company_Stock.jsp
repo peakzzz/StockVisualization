@@ -19,6 +19,11 @@
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
 <script src="http://code.highcharts.com/stock/highstock.js"></script>
 <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+
+<link rel="shortcut icon"
+	href="/stock/resources/images/stock-favicon.ico" type="image/x-icon" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/stock/resources/core/css/style.css">
 <link rel="stylesheet" href="/stock/resources/core/css/hello.css">
 <script type="text/javascript">
@@ -27,13 +32,13 @@
 	}
 	var selectedCompany = "";
 	$(function() {
-		
-		$("input[name=companyListId]").on('change', function(){
+
+		$("input[name=companyListId]").on('change', function() {
 			selectedCompany = $(this).val();
 		});
 
 		//Initializing map
-			$.ajax({
+		$.ajax({
 			url : "/stock/companyList",
 			context : document.body
 		}).done(
@@ -46,18 +51,15 @@
 					}
 				})
 	});
-	function populateCompanyDetails()
-	{
+	function populateCompanyDetails() {
 		$('#tabs').tabs();
 		var href = $('#tabs').find('a[href="#menu1"]');
 		(href).on('click', function() {
 			initMap();
 		});
 
-
-		
 		$.ajax({
-			url : "/stock/perCompany/"+selectedCompany,
+			url : "/stock/perCompany/" + selectedCompany,
 			context : document.body
 		}).done(
 				function(data) {
@@ -121,7 +123,7 @@
 		//This is the bar chart
 		$
 				.ajax({
-					url : "/stock/emplStrengthShareHolder/"+selectedCompany,
+					url : "/stock/emplStrengthShareHolder/" + selectedCompany,
 					context : document.body
 				})
 				.done(
@@ -279,7 +281,7 @@
 		//HighStock current price indicator
 
 		$.ajax({
-			url : "/stock/stockHighLowCompany/"+selectedCompany,
+			url : "/stock/stockHighLowCompany/" + selectedCompany,
 			context : document.body
 		}).done(
 				function(data) {
@@ -314,7 +316,7 @@
 
 						series : [ {
 							type : 'candlestick',
-							name : 'AAPL Stock Price',
+							name : selectedCompany,
 							data : series,
 							dataGrouping : {
 								units : [ [ 'week', // unit name
@@ -357,97 +359,125 @@
 
 		<div class="collapse navbar-collapse navbarCollapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="/stock/">DashBoard</a></li>
-				<li><a href="/stock/markets">Markets</a></li>
-				<li><a href="/stock/currency">Money</a></li>
-				<li><a href="/stock/company">Company</a></li>
+				<li class="active"><a href="/stock/"> <i
+						class="fa fa-dashboard "></i> DashBoard
+				</a></li>
+				<li><a href="/stock/markets"> <i class="fa fa-line-chart "></i>
+						Markets
+				</a></li>
+				<li><a href="/stock/currency"> <i class="fa fa-dollar "></i>
+						Money
+				</a></li>
+				<li><a href="/stock/company"> <i class="fa fa-building "></i>
+						Company
+				</a></li>
+				<li><a href="/stock/about"> <i class="fa fa-users "></i>
+						AboutUs
+				</a></li>
 			</ul>
 		</div>
 	</div>
 	</nav>
-
-	<div class="container" bg-color="#C0C0C0">
-		<input name = "companyListId" list="company_list">
+	<div class="row">
+		<input name="companyListId" list="company_list">
 		<datalist id="company_list"></datalist>
-		</input>
-		<input type = "button" value = "Search" id = "searchId" onClick = "populateCompanyDetails()"/>
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<div id="company_name"></div>
-				</h1>
-				<div class="grid">
-					<div class="row">
-						<div class="col-md-2">
+		</input> <input type="button" value="Search" id="searchId"
+			onClick="populateCompanyDetails()" />
+
+
+		<div id="company_name"></div>
+		</h1>
+		<div class="grid">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="col-md-12">
+						<label id="delayed"></label> <label color = "#000000" id="info">Delayed Data
+							as Nov 19
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="col-md-12">
+						<label id="change" style="color: red"></label> <label id="info">Todays
+							Change</label>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="col-md-12">
+						<label id="yrtoDate" style="color: green"></label> <label
+							id="info">Year-to-Date</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3" id="tabs">
+			<ul class="nav nav-stacked nav-pills fixed-nav">
+				<li class="active"><a href="#home">Home</a></li>
+				<li><a href="#menu1">Profile</a></li>
+				<li><a href="#menu2">Charts</a></li>
+			</ul>
+		</div>
+		<div class="col-md-9">
+			<div id="home" class="tab-pane fade in active">
+				<div class="panel panel-green panel-default">
+					<div class="panel-body" id="stocks"></div>
+				</div>
+			</div>
+			<div id="menu1">
+				<div class="panel panel-green panel-default">
+					<div class="panel-body">
+						<div class="row">
 							<div class="col-md-12">
-								<label id="delayed"></label> <label id="info">Delayed
-									Data as Nov 19</label>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="col-md-12">
-								<label id="change" style="color: red"></label> <label id="info">Todays
-									Change</label>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<div class="col-md-12">
-								<label id="yrtoDate" style="color: green"></label> <label
-									id="info">Year-to-Date</label>
+
+								<table id="sector_industry" cellspacing="0">
+									<tbody>
+										<tr>
+											<td class="wsod_tdfirst">SECTOR
+												<div id="sector"></div>
+											</td>
+											<td>INDUSTRY
+												<div id="indus"></div>
+											</td>
+											<td class="wsod_tdfirst">MARKET CAP
+												<div id="marketCap"></div>
+											</td>
+
+										</tr>
+									</tbody>
+								</table>
+								<!-- 								<div class="panel panel-white"> -->
+								<div class="col-md-6">
+									<h3>
+										<div class="borderBottom">Company Description</div>
+									</h3>
+									<p>
+									<div id="desc" style="font-style: san-serif; color: #535353"></div>
+									</p>
+								</div>
+								<div class="col-md-6">
+									<h4>
+										<div class="borderBottom">Contact Information</div>
+									</h4>
+
+									<div id="map-canvas" style="height: 300px; width: 400px"></div>
+								</div>
+								<div class="col-md-6">
+									<div id="emp_strength" style="height: 300px; width: 400px"></div>
+								</div>
+								<div class="col-md-6">
+									<div id="share_holder" style="height: 300px; width: 400px"></div>
+								</div>
+								<!-- 								</div> -->
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<ul class="nav nav-tabs" id="tabs">
-				<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-				<li><a data-toggle="tab" href="#menu1">Profile</a></li>
-				<li><a data-toggle="tab" href="#menu2">Charts</a></li>
-			</ul>
-
-			<div class="tab-content">
-				<div id="home" class="tab-pane fade in active">
-					<div id="stocks"></div>
+			<div id="menu2">
+				<div class="panel panel-green panel-default">
+					<div class="panel-body" id="chart" width="100%"></div>
 				</div>
-				<div id="menu1" class="tab-pane fade">
-					<table id="sector_industry" cellspacing="0">
-						<tbody>
-							<tr>
-								<td class="wsod_tdfirst">SECTOR
-									<div id="sector"></div>
-								</td>
-								<td>INDUSTRY
-									<div id="indus"></div>
-								</td>
-								<td class="wsod_tdfirst">MARKET CAP
-									<div id="marketCap"></div>
-								</td>
-
-							</tr>
-						</tbody>
-					</table>
-					<h3>
-						<div class="borderBottom">Company Description</div>
-					</h3>
-					<p>
-					<div id="desc" style="font-style: san-serif; color: #535353"></div>
-					</p>
-					<h4>
-						<div class="borderBottom">Contact Information</div>
-					</h4>
-					<div class="col-md-4">
-						<div id="map-canvas" style="height: 300px; width: 400px"></div>
-					</div>
-					<div class="col-md-4">
-						<div id="emp_strength" style="height: 300px; width: 400px"></div>
-					</div>
-					<div class="col-md-4">
-						<div id="share_holder" style="height: 300px; width: 400px"></div>
-					</div>
-				</div>
-				<div id="menu2" class="tab-pane fade">
-					<div id="chart"></div>
-				</div>
-
 			</div>
 		</div>
 	</div>

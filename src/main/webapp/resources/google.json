@@ -2,7 +2,7 @@
 	"company_data" :
 	{
 		"company_name": "Google"
-		"stock_name": "fcbk",
+		"stock_name": "goog",
 		"sector":"Technology Services",
 		"industry": "Internet Software/Services",
 		"market_cap" : "$294.0B",
@@ -25,26 +25,26 @@
 	 ]
 ,
 "stock_data": [
-{"date" :"2013-01-29","price":144, "name":"fb"},
-{"date" :"2013-07-20","price":87	,"name":"fb"},
-{"date" :"2013-09-16","price":120	,"name":"fb"},
-{"date" :"2013-12-05","price":71	,"name":"fb"},
-{"date" :"2014-03-07","price":61	,"name":"fb"},
-{"date" :"2014-07-26","price":106	,"name":"fb"},
-{"date" :"2014-12-11","price":101	,"name":"fb"},
-{"date" :"2015-01-05","price":192	,"name":"fb"},
-{"date" :"2015-02-19","price":159	,"name":"fb"},
-{"date" :"2015-03-14","price":199	,"name":"fb"},
-{"date" :"2015-08-04","price":75	,"name":"fb"},
-{"date" :"2015-09-01","price":196	,"name":"fb"},
-{"date" :"2015-09-04","price": 148, "name":"fb"},
-{"date" :"2016-03-28","price":111	,"name":"fb"},
-{"date" :"2016-05-22","price":58	,"name":"fb"},
-{"date" :"2016-06-04","price":65	,"name":"fb"},
-{"date" :"2016-06-25","price":151	,"name":"fb"},
-{"date" :"2016-09-12","price":106	,"name":"fb"},
-{"date" :"2016-10-13","price":142	,"name":"fb"},
-{"date" :"2016-10-22","price":113	,"name":"fb"}
+{"date" :"2013-01-29","price":144, "name":"goog"},
+{"date" :"2013-07-20","price":87	,"name":"goog"},
+{"date" :"2013-09-16","price":120	,"name":"goog"},
+{"date" :"2013-12-05","price":71	,"name":"goog"},
+{"date" :"2014-03-07","price":61	,"name":"goog"},
+{"date" :"2014-07-26","price":106	,"name":"goog"},
+{"date" :"2014-12-11","price":101	,"name":"goog"},
+{"date" :"2015-01-05","price":192	,"name":"goog"},
+{"date" :"2015-02-19","price":159	,"name":"goog"},
+{"date" :"2015-03-14","price":199	,"name":"goog"},
+{"date" :"2015-08-04","price":75	,"name":"goog"},
+{"date" :"2015-09-01","price":196	,"name":"goog"},
+{"date" :"2015-09-04","price": 148, "name":"goog"},
+{"date" :"2016-03-28","price":111	,"name":"goog"},
+{"date" :"2016-05-22","price":58	,"name":"goog"},
+{"date" :"2016-06-04","price":65	,"name":"goog"},
+{"date" :"2016-06-25","price":151	,"name":"goog"},
+{"date" :"2016-09-12","price":106	,"name":"goog"},
+{"date" :"2016-10-13","price":142	,"name":"goog"},
+{"date" :"2016-10-22","price":113	,"name":"goog"}
 ],
 "stock_ohlc":[
 
@@ -114,5 +114,5 @@
                  {"name":"Company Emplyees","data":24.65}
 
                  ],
-                 "name": "facebook"
+                 "name": "Google"
 }
