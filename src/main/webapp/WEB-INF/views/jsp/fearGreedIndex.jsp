@@ -5,7 +5,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Highstock Example</title>
-		  
+		 
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<style type="text/css">
 ${demo.css}
@@ -21,9 +21,17 @@ ${demo.css}
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-		
+}		
 		</style>
+		<style>
+.panel-body {
+    width:700px;
+    height:2500px;
+    background-color: LightGray;
+    margin:0 auto;
+}
+
+</style>
 		<script type="text/javascript">
 $(function () {
 
@@ -163,11 +171,11 @@ ${demo.css}
 		        yAxis: {
 		            min: 0,
 		            title: {
-		                text: 'Extreme Fear'
+		                text: 'Neutral'
 		            },
 		            max: 200,
 		            tooltip: {
-		                valueSuffix: ' Extreme Greed'
+		                valueSuffix: ' Neutral'
 		            }
 		          
 		        },
@@ -178,7 +186,7 @@ ${demo.css}
 
 		        series: [{
 		            name: 'Speed',
-		            data: [80],
+		            data: [120],
 		            dataLabels: {
 		                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
 		                    ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
@@ -200,17 +208,7 @@ ${demo.css}
 		            newVal,
 		            inc;
 
-		        if (chart) {
-		            point = chart.series[0].points[0];
-		            inc = Math.round((Math.random() - 0.5) * 100);
-		            newVal = point.y + inc;
-
-		            if (newVal < 0 || newVal > 200) {
-		                newVal = point.y - inc;
-		            }
-
-		            point.update(newVal);
-		        }
+		        
 		    }, 2000);
 
 		});
@@ -225,9 +223,9 @@ ${demo.css}
 
 <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
        <div class="panel-body"> 
-    		<div class="col col-sm-6" style="float: center" >
-        			<h1>Fear & Greed Index</h1>
-        			<h5>What emotion is driving the market now?</h5>
+    		<div class="col col-sm-6" align="center" >
+        			<h1><font color ="black" >Fear & Greed Index</font></h1>
+        			<h2><font color ="grey">What emotion is driving the market now?</font></h2>
     		</div>
   		
 <div style="width: 600px; height: 400px; margin: 0 auto">
@@ -325,7 +323,8 @@ Last changed Nov 3 from a <font color="red">Fear </font> rating
 <br><br>
 <small class="text-muted">Updated Dec 1 | 3:30pm</small>
 
-
+<br><br><br><br><br><br><br><br>
+	<h1><font color="white">Fear & Greed Index Over Time</font></h1>
  <div id="container2" style="height: 400px; min-width: 310px"></div>
                
 </div>

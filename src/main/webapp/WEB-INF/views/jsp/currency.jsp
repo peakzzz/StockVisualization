@@ -3,12 +3,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <%@ include file="main.jsp" %>
+<script type="text/javascript" src="/stock/resources/core/js/custom/bar.js"> </script>
+<script type="text/javascript" src="/stock/resources/core/js/custom/currencyUtility.js"> </script>
+<script type="text/javascript" src="/stock/resources/core/js/custom/worldMapUtility.js"> </script>
 <head>
 
 	<!-- script references -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<!--  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<script src="js/scripts.js"></script>
+		<script src="js/scripts.js"></script>-->
 		
 		<script src="/stock/resources/core/js/highstock.js"></script>
 		<script src="/stock/resources/core/js/modules/exporting.js"></script>
@@ -26,7 +29,7 @@
     width:223px;
 }
 </style>
-
+</head>
 
 <header class="masthead">
   <div class="container">
@@ -49,9 +52,14 @@
 		    <div class="panel panel-green panel-default">
 		      <div class="panel-heading"><h4>World Currencies</h4></div>
 		      
-		      <a href="/stock/resources/examples/tooltip/currencyMap.jsp">
-         		<img src="/stock/resources/images/world_currency.png" class="img-responsive" width="750" height="700" align="middle">
-				</a> 
+		      <div class="panel-body" id="worldcurrency"></div>
+		       
+		       <div class="row" id="worldcurrencymap">
+                
+				 	<a href="/stock/resources/examples/tooltip/currencyMap.jsp">
+	         			<img src="/stock/resources/images/world_currency.png" class="img-responsive" width="850" height="750" align="middle">
+					</a>
+                </div>
 				
 		    </div>
 		  </div>
@@ -60,11 +68,11 @@
 	      <div class="panel-heading"><h4>Stock Exchange</h4></div>
 	      <div class="panel-body" id="worldmarkets"></div>
 	          
-	       <div class="row">
+	        <div class="row" id="stockexchangemap">
                 
-			 <a href="/stock/resources/examples/tooltip/index.jsp">
+			 <!--<a href="/stock/resources/examples/tooltip/index.jsp">
          		<img src="/stock/resources/images/exchange_rates.png" class="img-responsive" width="780" height="900" align="middle">
-			</a> 
+			</a>-->
                             </div>
                         </div>
                     </div>
@@ -76,7 +84,7 @@
         </div>
      
 </header>
-</head>
+
 <!-- Begin Body -->
 <body>
 <div class="container">
@@ -202,6 +210,11 @@ That's just for starters. Someday your body may have its own set of Internet of 
              	</div>
       	</div> 
 		
-		</body>
+		<script>
+		window.onload = function() {
+			<!--worldMapSeries('worldcurrencymap');-->
+				currencySeries('stockexchangemap');
+}
+		</script>
 
-<!--<%@ include file="footer.jsp" %> -->
+<%@ include file="footer.jsp" %> 

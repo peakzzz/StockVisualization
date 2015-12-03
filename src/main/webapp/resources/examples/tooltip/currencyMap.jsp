@@ -134,7 +134,7 @@ $(function () {
                 shadow: false,
                 useHTML: true,
                 padding: 0,
-                valueSuffix: '%',
+                valueSuffix: '$',
                 pointFormat: '<span class="f32"><span class="flag {point.flag}"></span></span>'
                     + ' {point.name}: <b>{point.value}</b> |1 day Change',
                 positioner: function () {
