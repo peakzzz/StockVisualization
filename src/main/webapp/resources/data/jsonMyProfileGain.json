@@ -1,8 +1,8 @@
 {
 	"jsonMyProfileGain":[
-		{"key":"Google","value":8},
-		{"key":"Yahoo","value":7},
-		{"key":"FB","value":5},
-		{"key":"Wells Fargo & co","value":1}
+		{"key":"Wells Fargo & co","value":3.63},
+		{"key":"Microsoft","value":2.01},
+		{"key":"CIGNA","value":1.15},
+		{"key":"Yahoo","value":1.94}
 	]
 }

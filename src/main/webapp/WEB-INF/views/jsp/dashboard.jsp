@@ -64,8 +64,8 @@
                                     <i class="fa fa-star fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="big">124</div>
-                                    <div>Most success</div>
+                                    <div class="big">Wells Fargo</div>
+                                    <div>$55.08 (+3.63%)</div>
                                 </div>
                             </div>
                         </div>
@@ -220,7 +220,7 @@
                             			<div class="row">
                                 			<div class="col-xs-6 medium"> Total Companies </div>
                                 			<div class="col-xs-6 text-right">
-                                    			<div class="medium green">10</div>  
+                                    			<div class="medium green">9</div>  
                                 			</div>
                             			</div>
                         			</div>
@@ -282,16 +282,20 @@ function drawChart() {
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'From');
     data.addColumn('string', 'To');
-    data.addColumn('number', 'Weight');
+    data.addColumn('number', 'Shares');
     data.addRows([
-         [ 'TotalInvestment', '1stInvestment', 5 ],
-         [ 'TotalInvestment', '2ndInvestment', 5 ],
-         [ '1stInvestment', 'FB', 2 ],
-         [ '1stInvestment', 'Tesla', 2 ],
-         [ '1stInvestment', 'Google', 1 ],
-         [ '2ndInvestment', 'FB', 1 ],
-         [ '2ndInvestment', 'Tesla', 1 ],
-         [ '2ndInvestment', 'Amazon', 3 ],
+         [ 'TotalInvestment', '1stInvestment', 25 ],
+         [ 'TotalInvestment', '2ndInvestment', 60 ],
+         [ '1stInvestment', 'FaceBook', 10 ],
+         [ '1stInvestment', 'Tesla', 5 ],
+         [ '1stInvestment', 'Google', 10 ],
+         [ '2ndInvestment', 'FaceBook', 10 ],
+         [ '2ndInvestment', 'Tesla', 5 ],
+         [ '2ndInvestment', 'Amazon', 15 ],
+         [ '2ndInvestment', 'Yahoo', 20 ],
+         [ '2ndInvestment', 'Wells Fargo & co', 10 ],
+         [ '2ndInvestment', 'Novartis AG', 5 ],
+         [ '2ndInvestment', 'CIGNA', 5 ],
         ]);
     var colors = ['#a6cee3', '#b2df8a', '#fb9a99', '#fdbf6f',
                   '#cab2d6', '#ffff99', '#1f78b4', '#33a02c'];

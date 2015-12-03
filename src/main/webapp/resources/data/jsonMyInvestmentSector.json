@@ -12,10 +12,6 @@
 				          {
 				            "name": "Wells Fargo & co",
 				            "parent": "Financial"
-				          },
-				          {
-				            "name": "Visa Inc",
-				            "parent": "Financial"
 				          }
 				        ]
 				      },
@@ -25,6 +21,9 @@
 				         "children": [
 				          {
 				            "name": "Novartis AG",
+				            "parent": "Health Care"
+				          },  {
+				            "name": "CIGNA",
 				            "parent": "Health Care"
 				          }]
 				      },
@@ -37,6 +36,18 @@
 				            "parent": "Technology"
 				          },  {
 				            "name": "Google",
+				            "parent": "Technology"
+				          },  {
+				            "name": "Amazon",
+				            "parent": "Technology"
+				          },  {
+				            "name": "Microsoft",
+				            "parent": "Technology"
+				          },  {
+				            "name": "Tesla",
+				            "parent": "Technology"
+				          },  {
+				            "name": "Yahoo",
 				            "parent": "Technology"
 				          }]
 				      }

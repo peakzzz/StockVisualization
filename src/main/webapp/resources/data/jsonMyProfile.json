@@ -1,12 +1,13 @@
 {
 	"jsonMyProfile":[
-		{"key":"Google","value":8},
-		{"key":"Yahoo","value":7},
-		{"key":"FB","value":5},
-		{"key":"Tesla","value":-4},
-		{"key":"HP","value":-3},
-		{"key":"CONSOL Energy Inc","value":-2},
-		{"key":"Owens-Illinois Inc","value":-1},
-		{"key":"Wells Fargo & co","value":1}
+		{"key":"Google","value":-5.94},
+		{"key":"Yahoo","value":1.94},
+		{"key":"FaceBook","value":-1.05},
+		{"key":"Tesla","value":-5.2},
+		{"key":"Novartis AG","value":-1.14},
+		{"key":"CIGNA","value":1.15},
+		{"key":"Amazon","value":-3.05},
+		{"key":"Wells Fargo & co","value":3.63},
+		{"key":"Microsoft","value":2.01},
 		]
 }
