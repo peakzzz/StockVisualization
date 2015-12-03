@@ -10,6 +10,8 @@
   <script src="/stock/resources/core/js/highcharts-3d.js"></script>
   <script src="/stock/resources/core/js/highcharts-more.js"></script>
   <script src="/stock/resources/core/js/highstock.js"></script>
+  <script src="/stock/resources/core/js/modules/exporting.js"></script>
+  
   <script src="/stock/resources/core/js/bootstrap.min.js"></script>
   
   <script src="/stock/resources/core/js/d3.min.js"></script>

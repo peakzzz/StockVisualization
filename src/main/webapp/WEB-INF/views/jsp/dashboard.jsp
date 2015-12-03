@@ -25,7 +25,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="/stock/#portfolio">
                             <div class="panel-footer">
                                 <span class="pull-left">Portfolio</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="/stock/#profitloss">
                             <div class="panel-footer">
                                 <span class="pull-left">Profit & Loss</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="/stock/#profitloss">
                             <div class="panel-footer">
                                 <span class="pull-left">Most Successful Stock</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
