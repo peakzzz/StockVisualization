@@ -6,6 +6,7 @@
 <script type="text/javascript" src="/stock/resources/core/js/custom/bar.js"> </script>
 <script type="text/javascript" src="/stock/resources/core/js/custom/currencyUtility.js"> </script>
 <script type="text/javascript" src="/stock/resources/core/js/custom/worldMapUtility.js"> </script>
+
 <head>
 
 	<!-- script references -->
@@ -76,6 +77,25 @@
                             </div>
                         </div>
                     </div>
+                    
+         
+			<!-- CURRENCY CONVERTER CODE START -->
+<div id="section3">
+	    <div class="panel panel-green panel-default">
+	    <div class="panel-heading"><h4>Update Country Currency</h4></div>
+				<div id="cc_xxDIV">
+				  <div style="text-align:center; padding:10px; font-size: 11px;width:215px;">
+				    <p><img src="http://tools.currenciesdirect.net/wait.gif" alt="Currency converter" /></p>
+				    <p>Loading currency converter</a></p>
+				    <p>Please wait<br />....</p>
+				   </div>
+				</div>
+				<script type="text/javascript" src="http://tools.currenciesdirect.net/cd.currency.html.js"></script>
+			</div>
+			</div>
+</div>
+<!-- CURRENCY CONVERTER CODE END -->
+
                 </div>
             </div>            
 	    </div> 
