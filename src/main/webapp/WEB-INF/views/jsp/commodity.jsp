@@ -148,25 +148,25 @@ select {
         <TR>
             <TD class="col1"><strong>Gold</strong></br> </TD>
             <TD id ="gold" class="col2">2.5110176173970107</TD>
-            <TD id ="calc5" class="col3">-1.09%</TD>
+            <TD id ="calc5" class="col3">7.058681814372539 </TD>
         </TR>
 
         <TR>
             <TD class="col1"><strong>Silver </strong><br/></TD>
             <TD id ="silver" class="col2">7.058681814372539 </TD>
-            <TD id ="calc6" class="col3">-1.62%</TD>
+            <TD id ="calc6" class="col3">17.107545334752649</TD>
         </TR>
 
         <TR>
             <TD class="col1"><strong>Platinum </strong><br/></TD>
             <TD id ="platinum" class="col2">43.194262933963905</TD>
-            <TD id ="calc7" class="col3">-2.70%</TD>
+            <TD id ="calc7" class="col3">10.107545334752649</TD>
         </TR>
 
         <TR>
             <TD class="col1"><strong>Copper </strong><br/></TD>
             <TD id ="copper" class="col2">10.107545334752649</TD>
-            <TD id ="calc8" class="col3">-1.32%</TD>
+            <TD id ="calc8" class="col3">1.194262933963905</TD>
         </TR>
 </tbody>
 </table>
@@ -190,7 +190,7 @@ select {
         <TR>
             <TD class="col1"><strong>Corn</strong></br> </TD>
             <TD id ="corn" class="col2">47.02201250456273</TD>
-            <TD id ="calc9" class="col3">-1.09%</TD>
+            <TD id ="calc9" class="col3">3.473395881708713</TD>
         </TR>
 
         <TR>
@@ -202,7 +202,7 @@ select {
         <TR>
             <TD class="col1"><strong>Wheat</strong><br/></TD>
             <TD id ="wheat" class="col2">20.542989963665605</TD>
-            <TD id ="calc11" class="col3">-2.70%</TD>
+            <TD id ="calc11" class="col3">13.3355881708713</TD>
         </TR>
 </tbody>
 </table>
@@ -262,24 +262,24 @@ select {
         <TR>
             <TD class="col1"><strong>Cocoa</strong></br> </TD>
             <TD id ="cocoa" class="col2">2.5110176173970107</TD>
-            <TD id ="calc15" class="col3">-1.09%</TD>
+            <TD id ="calc15" class="col3">-13.473395881708713</TD>
         </TR>
 
         <TR>
             <TD class="col1"><strong>Coffee </strong><br/></TD>
             <TD id ="coffee" class="col2">42.65631543171614</TD>
-            <TD id ="calc16" class="col3">-1.62</TD>
+            <TD id ="calc16" class="col3">23.473395881708713</TD>
         </TR>
 
         <TR>
             <TD class="col1"><strong>Cotton </strong><br/></TD>
-            <TD id ="cotton" class="col2">-0.062</TD>
+            <TD id ="cotton" class="col2">17.473395881708713</TD>
             <TD id ="calc17" class="col3">2.5110176173970107</TD>
         </TR>
 
         <TR>
             <TD class="col1"><strong>Sugar #11</strong><br/></TD>
-            <TD id ="sugar" class="col2">-0.0178</TD>
+            <TD id ="sugar" class="col2">13.473395881708713</TD>
             <TD id ="calc18" class="col3">42.65631543171614</TD>
         </TR>
 </tbody>
@@ -406,16 +406,17 @@ $("#change").on('click', function(){
         var cotton = Math.random()* (67.9 - 5.9) + 1;
         var sugar = Math.random()* (89.1 - 2.1) + 1;
 
-        var calc1 = ((oil-oldoil)/oldoil)*100;
+        var calc1 = ((oil-oldoil)/oldoil);
 
         var col1 = document.getElementById("calc1");
 
         if( oldoil > oil)
         {
             col1.style.color = "#ff0000";
+
         }
         else
-            col1.style.color = "07F313";
+           col1.style.color = "#30C149";    
 
         col1.innerHTML = calc1;   
 
@@ -430,7 +431,7 @@ $("#change").on('click', function(){
             col2.style.color = "#ff0000";
         }
         else
-            col2.style.color = "07F313";
+            col2.style.color = "#30C149";
 
         col2.innerHTML = calc2;  
 
@@ -445,7 +446,7 @@ $("#change").on('click', function(){
             col3.style.color = "#ff0000";
         }
         else
-            col3.style.color = "07F313";
+            col3.style.color = "#30C149";
 
         col3.innerHTML = calc3;
 
@@ -460,7 +461,7 @@ $("#change").on('click', function(){
             col4.style.color = "#ff0000";
         }
         else
-            col4.style.color = "07F313";
+            col4.style.color = "#30C149";
 
         col4.innerHTML = calc4;
 
@@ -475,7 +476,7 @@ $("#change").on('click', function(){
             col5.style.color = "#ff0000";
         }
         else
-            col5.style.color = "07F313";
+            col5.style.color = "#30C149";
 
         col5.innerHTML = calc5;       
 
@@ -490,11 +491,191 @@ $("#change").on('click', function(){
             col6.style.color = "#ff0000";
         }
         else
-            col6.style.color = "07F313";
+            col6.style.color = "#30C149";
 
         col6.innerHTML = calc6;   
+
+        //
+
+        var calc7 = ((platinum-oldplatinum)/oldplatinum)*100;
+
+        var col7 = document.getElementById("calc7");
+
+        if( oldplatinum > platinum)
+        {
+            col7.style.color = "#ff0000";
+        }
+        else
+            col7.style.color = "#30C149";
+
+        col7.innerHTML = calc7;   
+
+        //
+
+        var calc8 = ((copper-oldcopper)/oldcopper)*100;
+
+        var col8 = document.getElementById("calc8");
+
+        if( oldcopper > copper)
+        {
+            col8.style.color = "#ff0000";
+        }
+        else
+            col8.style.color = "#30C149";
+
+        col8.innerHTML = calc8; 
+
+        //
+
+        var calc9 = ((corn-oldcorn)/oldcorn)*100;
+
+        var col9 = document.getElementById("calc9");
+
+        if( oldcorn > corn)
+        {
+            col9.style.color = "#ff0000";
+        }
+        else
+            col9.style.color = "#30C149";
+
+        col9.innerHTML = calc9; 
+
+        //
+
+        var calc10 = ((soybeans-oldsoybeans)/oldsoybeans)*100;
+
+        var col10 = document.getElementById("calc10");
+
+        if( oldsoybeans > soybeans)
+        {
+            col10.style.color = "#ff0000";
+        }
+        else
+            col10.style.color = "#30C149";
+
+        col10.innerHTML = calc10;  
+
+        //
+
+        var calc11 = ((wheat-oldwheat)/oldwheat)*100;
+
+        var col11 = document.getElementById("calc11");
+
+        if( oldwheat > wheat)
+        {
+            col11.style.color = "#ff0000";
+        }
+        else
+            col11.style.color = "#30C149";
+
+        col11.innerHTML = calc11;  
+
+        //
+
+        var calc12 = ((leanHogs-oldleanHogs)/oldleanHogs)*100;
+
+        var col12 = document.getElementById("calc12");
+
+        if( oldleanHogs > leanHogs)
+        {
+            col12.style.color = "#ff0000";
+        }
+        else
+            col12.style.color = "#30C149";
+
+        col12.innerHTML = calc12;         
+        
+        //
+
+        var calc13 = ((liveCattle-oldliveCattle)/oldliveCattle)*100;
+
+        var col13 = document.getElementById("calc13");
+
+        if( oldliveCattle > liveCattle)
+        {
+            col13.style.color = "#ff0000";
+        }
+        else
+            col13.style.color = "#30C149";
+
+        col13.innerHTML = calc13;   
+
+        //
+
+        var calc14 = ((fedderCattle-oldfedderCattle)/oldfedderCattle)*100;
+
+        var col14 = document.getElementById("calc14");
+
+        if( oldfedderCattle > fedderCattle)
+        {
+            col14.style.color = "#ff0000";
+        }
+        else
+            col14.style.color = "#30C149";
+
+        col14.innerHTML = calc14;  
+
         
 
+        //
+
+        var calc15 = ((cocoa-oldcocoa)/oldcocoa)*100;
+
+        var col15 = document.getElementById("calc15");
+
+        if( oldcocoa > cocoa)
+        {
+            col15.style.color = "#ff0000";
+        }
+        else
+            col15.style.color = "#30C149";
+
+        col15.innerHTML = calc15;  
+
+        //
+
+        var calc16 = ((coffee-oldcoffee)/oldcoffee)*100;
+
+        var col16 = document.getElementById("calc16");
+
+        if( oldcoffee > coffee)
+        {
+            col16.style.color = "#ff0000";
+        }
+        else
+            col16.style.color = "#30C149";
+
+        col16.innerHTML = calc16; 
+
+        //
+
+        var calc17 = ((cotton-oldcotton)/oldcotton)*100;
+
+        var col17 = document.getElementById("calc17");
+
+        if( oldcotton > cotton)
+        {
+            col17.style.color = "#ff0000";
+        }
+        else
+            col17.style.color = "#30C149";
+
+        col17.innerHTML = calc17;  
+
+        //
+
+        var calc18 = ((sugar-oldsugar)/oldsugar)*100;
+
+        var col18 = document.getElementById("calc18");
+
+        if( oldsugar > sugar)
+        {
+            col18.style.color = "#ff0000";
+        }
+        else
+            col18.style.color = "#30C149";
+
+        col18.innerHTML = calc18;   
 
         document.getElementById("oil").innerHTML = oil; 
         document.getElementById("heatingOil").innerHTML = heatingOil; 
@@ -519,14 +700,11 @@ $("#change").on('click', function(){
         document.getElementById("cotton").innerHTML = cotton; 
         document.getElementById("sugar").innerHTML = sugar;
 
-    }, 4000);
+    }, 3000);
 
 
     
 </script>
-
-
-
 
   
 
