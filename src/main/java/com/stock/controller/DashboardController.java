@@ -139,11 +139,11 @@ public class DashboardController {
         	jsonMyProfile.add(dataset);
         	//System.out.println("jsonMyProfile:"+jsonMyProfile);
         }*/
-        //System.out.println("jsonMyProfile:"+jsonMyProfile);
-        mv.addObject("jsonMyProfile",jsonMyProfile);
-        mv.addObject("jsonMyProfileLoss",jsonMyProfileLoss);
-        mv.addObject("jsonMyProfileGain",jsonMyProfileGain);
-        mv.addObject("jsonMyInvestmentSector",jsonMyInvestmentSector);
+        
+        mv.addObject("jsonMyProfile",jsonMyProfile.toString());
+        mv.addObject("jsonMyProfileLoss",jsonMyProfileLoss.toString());
+        mv.addObject("jsonMyProfileGain",jsonMyProfileGain.toString());
+        mv.addObject("jsonMyInvestmentSector",jsonMyInvestmentSector.toString());
         mv.addObject("day",day);
         mv.addObject("date",dateToday);
         mv.addObject("total",total);

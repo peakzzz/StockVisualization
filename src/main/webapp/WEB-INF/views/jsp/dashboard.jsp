@@ -318,12 +318,12 @@ function drawChart() {
 }
 
 window.onload = function() {
-	var jsonMyProfile = JSON.parse($('#listmyprofile').val());
-	var jsonMyProfileGain = JSON.parse($('#listmyprofilegain').val());
+	var jsonMyProfile = JSON.parse(jQuery('#listmyprofile').val());
+	var jsonMyProfileGain = JSON.parse(jQuery('#listmyprofilegain').val());
 	//console.log("list category hi",jsonMyProfileGain);
-	var jsonMyProfileLoss = JSON.parse($('#listmyprofileloss').val());
+	var jsonMyProfileLoss = JSON.parse(jQuery('#listmyprofileloss').val());
 	//console.log("list category hi",jsonMyProfileLoss);
-	var jsonMyInvestmentSector = JSON.parse($('#jsonMyInvestmentSector').val());
+	var jsonMyInvestmentSector = JSON.parse(jQuery('#jsonMyInvestmentSector').val());
 	createTable('stocktable',jsonMyProfile);
 	createDashPie('gainpanel','My Gain',jsonMyProfileGain);
 	createDashDonut('losspanel','My Loss',jsonMyProfileLoss);
