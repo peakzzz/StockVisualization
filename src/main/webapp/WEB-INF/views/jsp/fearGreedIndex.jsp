@@ -102,6 +102,40 @@ $(function () {
 
 });
 
+//Bring life to the dials
+setInterval(function () {
+    // Speed
+    var chart = $('#container-speed').highcharts(),
+        point,
+        newVal,
+        inc;
+
+    if (chart) {
+        point = chart.series[0].points[0];
+        inc = Math.round((Math.random() - 0.5) * 100);
+        newVal = point.y + inc;
+
+        if (newVal < 0 || newVal > 200) {
+            newVal = point.y - inc;
+        }
+
+        point.update(newVal);
+    }
+
+    // RPM
+    chart = $('#container-rpm').highcharts();
+    if (chart) {
+        point = chart.series[0].points[0];
+        inc = Math.random() - 0.5;
+        newVal = point.y + inc;
+
+        if (newVal < 0 || newVal > 5) {
+            newVal = point.y - inc;
+        }
+
+        point.update(newVal);
+    }
+}, 2000);
 		</script>
 
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
