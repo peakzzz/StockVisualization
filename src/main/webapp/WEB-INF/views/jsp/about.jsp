@@ -25,7 +25,7 @@
                     <div class="team-member">
                         <img src="/stock/resources/images/sandhya_about.png" class="img-responsive img-circle" alt="">
                         <h3><font color="white">Sandhya Sadanandan</font></h3>
-                        <p class="text-muted">piyubhansali@gmail.com</p>
+                        <p class="text-muted">sandhya.sadanandan@sjsu.edu</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
@@ -70,7 +70,7 @@
                     <div class="team-member">
                         <img src="/stock/resources/images/priyanka_about.png" class="img-responsive img-circle" alt="">
                         <h3><font color="white">Priyanka Bhansali</font></h3>
-                        <p class="text-muted">Lead Developer</p>
+                        <p class="text-muted">piyubhansali@gmail.com</p>
                         <ul class="list-inline social-buttons">
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
